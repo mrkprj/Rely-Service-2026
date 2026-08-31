@@ -39,10 +39,21 @@ grep -rn "TODO" --include="*.php" --include="*.css" --include="*.xml" .
 You need PHP 8 installed (`sudo dnf install php-cli` on Fedora), then:
 
 ```bash
-php -S localhost:8000 router.php
+cd "/home/mark/Fromdrive/2026 website/Rely Service 2026"
+php -S 127.0.0.1:8000 router.php
 ```
 
-Open <http://localhost:8000>. `router.php` reproduces the clean URLs that
+Open <http://127.0.0.1:8000>.
+
+> **The `cd` matters.** `router.php` and the page files are resolved relative to
+> the directory you launch from. Start the server anywhere else and PHP still
+> binds the port but can't find the router — every request then returns a 500,
+> which looks like a broken site rather than a wrong working directory.
+>
+> Use `127.0.0.1` rather than `localhost`: on some systems `localhost` binds only
+> the IPv6 loopback, and `http://127.0.0.1:8000` is then refused.
+
+`router.php` reproduces the clean URLs that
 `.htaccess` provides on the real server — it is a **development file only**, and
 does not need to be uploaded.
 
