@@ -1,0 +1,71 @@
+# Rely Service — Apache config for shared cPanel hosting.
+# Safe to drop in as-is. If a rule causes a 500 error on your host, comment it
+# out and reload; shared hosts occasionally disable individual modules.
+
+Options -Indexes
+DirectoryIndex index.php
+
+# --- Clean URLs -------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS (turn this on only AFTER your SSL certificate is active).
+  # RewriteCond %{HTTPS} !=on
+  # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # Force the www. host so you don't split SEO across two hostnames.
+  # Flip the condition if you prefer the bare domain.
+  # RewriteCond %{HTTP_HOST} !^www\. [NC]
+  # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+  # /about.php  ->  /about   (301, so the clean URL is the canonical one)
+  RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # /about  ->  about.php  (internally; the browser keeps the clean URL)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.php -f
+  RewriteRule ^(.+?)/?$ $1.php [L]
+</IfModule>
+
+ErrorDocument 404 /404.php
+
+# --- Block access to server-side directories --------------------------------
+RedirectMatch 404 ^/storage(/.*)?$
+RedirectMatch 404 ^/includes(/.*)?$
+
+<FilesMatch "\.(csv|log|md|json|lock)$">
+  Require all denied
+</FilesMatch>
+
+# --- Security headers -------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # Enable once the site is fully on HTTPS and you're sure you won't revert:
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# --- Compression ------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
+                                application/javascript application/json \
+                                image/svg+xml
+</IfModule>
+
+# --- Browser caching --------------------------------------------------------
+# CSS and JS are cache-busted by the ?v=1 query string in header.php —
+# bump that number whenever you edit style.css or main.js.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                "access plus 1 year"
+  ExpiresByType application/javascript  "access plus 1 year"
+  ExpiresByType image/svg+xml           "access plus 1 year"
+  ExpiresByType image/png               "access plus 1 year"
+  ExpiresByType image/jpeg              "access plus 1 year"
+  ExpiresByType image/webp              "access plus 1 year"
+  ExpiresByType font/woff2              "access plus 1 year"
+  ExpiresByType text/html               "access plus 0 seconds"
+</IfModule>

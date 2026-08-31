@@ -1,0 +1,4 @@
+storage/*.csv
+.DS_Store
+Thumbs.db
+*.log
