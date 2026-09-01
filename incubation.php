@@ -1,92 +1,95 @@
 <?php
 $page_title       = 'Incubation & Entrepreneurship';
-$page_description = 'Rely Service supports campus entrepreneurship: on-campus training, venture mentoring, incubation cell setup, and access to industry, mentors and funding.';
+$page_description = 'Rely Service helps educational institutions establish and run their own incubation centres — setup, legal and governance, funding, mentor networks and day-to-day operations.';
 $active           = 'incubation';
 require __DIR__ . '/includes/header.php';
 
-/* Sections reframed around what Rely Service actually delivers. The
-   entrepreneurship curriculum below is taken from the Management training
-   catalogue in the T&P deck; the rest is written as capability, without
-   invented case studies, venture names or figures. */
+/* The client here is the INSTITUTION, not the student venture. Rely Service
+   sets up and supports the running of incubation centres that the institution
+   owns outright — no co-ownership, no equity. Keep that framing throughout.
+
+   The entrepreneurship curriculum under 'mentors-operations' is real, taken
+   from the Management stream of the T&P deck. Nothing else is invented as a
+   case study or figure. */
 $sections = [
     [
-        'id'    => 'entrepreneurship-training',
-        'title' => 'Entrepreneurship Training',
-        'lead'  => 'A working founder\'s curriculum, delivered on campus alongside the degree.',
+        'id'    => 'setting-up',
+        'title' => 'Setting Up the Centre',
+        'lead'  => 'From a decision at management level to a centre that is open, staffed and taking its first cohort.',
         'body'  => [
-            'Most students who want to start something have never been taught the mechanics of it. We run structured training on campus that covers the actual craft: validating an idea before building it, mapping a business model, defining a minimum viable product, pricing, and understanding the metrics that tell you whether any of it is working.',
-            'It is taught the same way our technical training is — by people who have built and run businesses, not from a syllabus. Students who go on to start nothing still leave with commercial literacy that serves them in any role.',
+            'Establishing an incubation centre involves a great deal more than allocating a room and announcing it. It needs a defined purpose, an intake process, a support model that ventures are genuinely entitled to, and someone accountable for outcomes. Institutions rarely have that expertise in-house, and it is not the kind of thing that is easily learnt on a first attempt.',
+            'We bring it. We work with your management to design the centre around what your institution can realistically sustain — its streams, its student profile, its regional industry — and then set it up: structure, policy, process, infrastructure and the recognitions worth pursuing.',
         ],
         'panel' => [
-            'heading' => 'What we teach',
+            'heading' => 'What setup covers',
             'items'   => [
-                'Idea validation and customer discovery',
-                'Business Model Canvas and business metrics',
-                'Minimum viable product and product design',
-                'Value pricing and business models',
-                'Intellectual property — protect and profit',
-                'Seed fundraising fundamentals',
-                'Personal branding and product consulting',
+                'Feasibility and scoping with management',
+                'Centre structure, charter and policy framework',
+                'Venture intake and selection process',
+                'Physical and digital infrastructure planning',
+                'Staffing model and role definitions',
+                'Recognition and empanelment routes worth pursuing',
             ],
         ],
     ],
     [
-        'id'    => 'venture-mentoring',
-        'title' => 'Venture Mentoring',
-        'lead'  => 'Hands-on guidance for the student teams actually building something.',
+        'id'    => 'legal-governance',
+        'title' => 'Legal & Governance',
+        'lead'  => 'The framework that decides who owns what — settled properly at the start, not argued about later.',
         'body'  => [
-            'Training gets a cohort to the starting line; a venture needs someone in the room as decisions get made. We mentor individual student teams through the awkward middle — the pivot after the first ten customer conversations, the co-founder disagreement, the decision to stop building a feature nobody asked for.',
-            'Mentoring runs to a schedule with checkpoints rather than an open door, because founders make faster progress against a deadline than against goodwill. Teams that aren\'t working get told so early, which is kinder than letting them drift for a year.',
+            'The questions that damage campus incubation are almost always legal ones left unanswered: who owns the intellectual property a student developed using institutional resources, what the institution is entitled to if a venture succeeds, what happens when a founder graduates or leaves, and what the centre is liable for.',
+            'We help you put that framework in place — the entity structure, the agreements, the IP and equity policy, and the governance that keeps the centre accountable to your management committee. Institutions that settle this early avoid the disputes that quietly close incubation centres down.',
         ],
         'panel' => [
-            'heading' => 'How mentoring runs',
+            'heading' => 'What this covers',
             'items'   => [
-                'Regular sessions with defined checkpoints',
-                'Mentors drawn from industry and practising founders',
-                'Support through prototyping and first customers',
-                'Honest assessment — including when to stop',
-                'Preparation for pitches, demo days and competitions',
+                'Entity structure and registration guidance',
+                'Intellectual property policy',
+                'Equity and revenue-sharing frameworks',
+                'Founder, incubatee and mentor agreements',
+                'Statutory and regulatory compliance',
+                'Governance, reporting lines and oversight',
             ],
         ],
     ],
     [
-        'id'    => 'incubation-cell',
-        'title' => 'Incubation Cell Setup',
-        'lead'  => 'Helping institutions build incubation that keeps running after the launch event.',
+        'id'    => 'funding-finance',
+        'title' => 'Funding & Finance',
+        'lead'  => 'Money into the centre, and money into the ventures it backs — two different problems.',
         'body'  => [
-            'A great many campus incubation cells are inaugurated with enthusiasm and quiet within two years. What is usually missing is not funding or space but structure: how ventures are selected, what support they are actually entitled to, who is accountable, and how any of it is measured.',
-            'We help institutions design and stand that up — the process, the selection criteria, the mentor network, the reporting — and we work alongside existing centres too. We are a delivery partner to WISE, the incubation centre at SNDT Women\'s University.',
-            /* TODO: CONFIRM the exact wording describing the WISE partnership,
-               and whether SNDTWU is happy to be named in this way. */
+            'An incubation centre has its own financial life: a budget, sustainability targets, and often grant or scheme funding it is eligible for and unaware of. Separately, the ventures inside it need access to seed capital, and student founders are rarely equipped to raise it.',
+            'We work on both. For the centre, that means financial structure, budgeting and identifying the government schemes and institutional funding routes it can access. For the ventures, it means readiness — knowing what an investor will ask, and being able to answer.',
         ],
         'panel' => [
-            'heading' => 'What we help set up',
+            'heading' => 'What this covers',
             'items'   => [
-                'Incubation structure, policy and governance',
-                'Venture selection and intake process',
-                'Mentor network recruitment and management',
-                'Programme calendar and cohort design',
-                'Performance tracking and reporting',
-                'Support for existing centres that have stalled',
-            ],
-        ],
-    ],
-    [
-        'id'    => 'industry-funding',
-        'title' => 'Industry & Funding Access',
-        'lead'  => 'The connections a campus venture cannot make on its own.',
-        'body'  => [
-            'A student venture\'s hardest constraint is usually reach: no route to a first corporate customer, no introduction to a mentor who has solved this exact problem, no idea which grant or scheme it qualifies for.',
-            'We open our corporate and institutional network to campus ventures — the same relationships that place students into internships and jobs — and prepare founders for the conversations that follow. Investor readiness is treated as a skill to be taught, not a pitch day to be survived.',
-        ],
-        'panel' => [
-            'heading' => 'What this opens up',
-            'items'   => [
-                'Introductions to industry and corporate partners',
-                'Mentor and practising-founder network',
-                'Guidance on grants, seed schemes and funding routes',
+                'Financial structure and budgeting for the centre',
+                'Government grant and scheme identification',
+                'Seed and early-stage funding routes for ventures',
                 'Investor readiness and pitch preparation',
-                'Alumni founder connections',
+                'Financial controls and reporting',
+                'Long-term sustainability planning',
+            ],
+        ],
+    ],
+    [
+        'id'    => 'mentors-operations',
+        'title' => 'Mentors & Operations',
+        'lead'  => 'Everything involved in the centre actually running, week to week, after the inauguration.',
+        'body'  => [
+            'A great many campus incubation cells are opened with enthusiasm and are quiet within two years — not because the idea was wrong, but because nobody owned the running of it. Operations are where incubation succeeds or fails.',
+            'We build and manage the mentor network, run the entrepreneurship programmes that feed the pipeline, structure the cohort calendar, connect ventures to our industry network, and keep the reporting your management committee needs. Where a centre already exists and has stalled, this is usually the part that needs rebuilding.',
+        ],
+        'panel' => [
+            'heading' => 'What this covers',
+            'items'   => [
+                'Mentor network recruitment and management',
+                'Entrepreneurship training — validation, business models, MVP, pricing, IP',
+                'Cohort programme design and calendar',
+                'Ongoing mentoring for incubated ventures',
+                'Industry and corporate introductions',
+                'Demo days, showcases and competitions',
+                'Performance tracking and management reporting',
             ],
         ],
     ],
@@ -97,16 +100,55 @@ $sections = [
   <div class="container">
     <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> Incubation &amp; Entrepreneurship</p>
     <span class="eyebrow">Incubation &amp; Entrepreneurship</span>
-    <h1>Campus entrepreneurship that produces companies, not just competitions</h1>
+    <h1>We help you build your incubation centre — and keep it running</h1>
     <p class="lead">
-      We train student founders, mentor the ventures worth backing, help institutions
-      build incubation that lasts, and open the industry and funding doors a campus
-      team cannot open alone.
+      Rely Service sets up incubation centres for educational institutions and supports
+      every part of their working: legal, financial, funding, mentors and day-to-day
+      operations. The centre is yours. We bring the expertise to run it well.
     </p>
   </div>
 </section>
 
 <?php require __DIR__ . '/includes/pillar-sections.php'; ?>
+
+<section class="section section--tint">
+  <div class="container pillar-grid">
+    <div>
+      <span class="eyebrow">How we engage</span>
+      <h2>Your centre, your name, your ownership</h2>
+      <p class="lead">
+        We are a service partner, not a stakeholder. We take no ownership in the
+        incubation centres we help establish and no equity in the ventures they
+        support.
+      </p>
+      <p>
+        That matters more than it might sound. An incubation centre is part of an
+        institution's identity and its accreditation record, and its relationships
+        with founders depend on there being no ambiguity about who is entitled to
+        what. We are engaged to build the capability and support its operation — the
+        centre belongs to you throughout.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-dark" href="/contact">Discuss an engagement</a>
+      </div>
+    </div>
+    <div class="panel" style="background:#fff">
+      <h4>Where institutions bring us in</h4>
+      <ul class="feature-list">
+        <li><strong>From scratch</strong> — no centre yet, starting with the decision to build one</li>
+        <li><strong>Newly established</strong> — a centre exists on paper and needs to become operational</li>
+        <li><strong>Stalled</strong> — inaugurated, then quiet; usually an operations and mentor problem</li>
+        <li><strong>Running, needs depth</strong> — an active centre wanting stronger legal, funding or industry footing</li>
+      </ul>
+      <!-- TODO: CONFIRM wording, and that SNDTWU is content to be named here.
+           Described as a delivery partner supporting the centre, not running it. -->
+      <p style="margin-top:1.25rem;font-size:var(--step--1);color:var(--muted)">
+        We work as a delivery partner supporting WISE, the incubation centre at
+        SNDT Women's University.
+      </p>
+    </div>
+  </div>
+</section>
 
 <section class="section section--ink">
   <div class="container">
@@ -137,8 +179,8 @@ $sections = [
 
 <section class="cta-band">
   <div class="container">
-    <h2>Starting or restarting your incubation centre?</h2>
-    <p>Whether it's a new cell, one that has gone quiet, or a cohort that needs mentoring, we can help you get it running properly.</p>
+    <h2>Building or reviving an incubation centre?</h2>
+    <p>Whether you're starting from a blank page or restarting a cell that has gone quiet, we can help you get it running properly.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="/contact">Talk to us about incubation</a>
     </div>

@@ -68,7 +68,7 @@ $clients = [
         <li><strong>Campus to Corporate</strong> — soft skills, aptitude, technical training and placement support</li>
         <li><strong>Educational ERP</strong> — admissions, student records, examinations, placement cell</li>
         <li><strong>Accreditation &amp; Compliance</strong> — NAAC, NBA, NIRF and AICTE readiness</li>
-        <li><strong>Incubation</strong> — training, mentoring and industry access for campus ventures</li>
+        <li><strong>Incubation</strong> — establishing and running institutional incubation centres</li>
       </ul>
     </div>
   </div>
@@ -106,8 +106,8 @@ $clients = [
       <article class="card">
         <span class="card-icon" aria-hidden="true">03</span>
         <h3>Incubation &amp; Entrepreneurship</h3>
-        <p>Entrepreneurship training, mentoring for student ventures, incubation cell
-           setup, and access to industry mentors and funding routes.</p>
+        <p>We help institutions establish their own incubation centres, and support
+           every part of running one — legal, financial, funding and mentors.</p>
         <a class="link-arrow" href="/incubation">Explore incubation</a>
       </article>
     </div>
@@ -183,23 +183,23 @@ $clients = [
   <div class="container pillar-grid">
     <div>
       <span class="eyebrow">Incubation &amp; Entrepreneurship</span>
-      <h2>From a campus idea to a company that can stand on its own</h2>
+      <h2>Your incubation centre, built properly and kept running</h2>
       <p class="lead">
-        We train student founders, mentor the ventures worth backing, and help
-        institutions build incubation with the structure and industry access to take
-        a venture past the pitch deck.
+        We set up incubation centres for institutions and support every aspect of
+        their working — legal, financial, funding, mentors and operations. You own
+        the centre; we bring the expertise to run it well.
       </p>
       <div class="btn-row">
         <a class="btn btn-dark" href="/incubation">See incubation</a>
       </div>
     </div>
     <div class="panel">
-      <h4>How we support campus ventures</h4>
+      <h4>How we support your incubation centre</h4>
       <ul class="feature-list">
-        <li><strong>Entrepreneurship Training</strong> — validation, business models, MVP, pricing, IP</li>
-        <li><strong>Venture Mentoring</strong> — hands-on guidance for teams actually building</li>
-        <li><strong>Incubation Cell Setup</strong> — structure, selection, mentors, reporting</li>
-        <li><strong>Industry &amp; Funding Access</strong> — introductions, grants, investor readiness</li>
+        <li><strong>Setting Up the Centre</strong> — structure, policy, intake process, infrastructure</li>
+        <li><strong>Legal &amp; Governance</strong> — IP policy, agreements, compliance, oversight</li>
+        <li><strong>Funding &amp; Finance</strong> — grants, seed routes, budgeting, investor readiness</li>
+        <li><strong>Mentors &amp; Operations</strong> — mentor network, programmes, day-to-day running</li>
       </ul>
     </div>
   </div>

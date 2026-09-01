@@ -58,10 +58,10 @@ $NAV = [
         'label' => 'Incubation & Entrepreneurship',
         'url'   => '/incubation',
         'children' => [
-            ['Entrepreneurship Training', '/incubation#entrepreneurship-training'],
-            ['Venture Mentoring',         '/incubation#venture-mentoring'],
-            ['Incubation Cell Setup',     '/incubation#incubation-cell'],
-            ['Industry & Funding Access', '/incubation#industry-funding'],
+            ['Setting Up the Centre',   '/incubation#setting-up'],
+            ['Legal & Governance',      '/incubation#legal-governance'],
+            ['Funding & Finance',       '/incubation#funding-finance'],
+            ['Mentors & Operations',    '/incubation#mentors-operations'],
         ],
     ],
     'about' => [
