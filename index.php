@@ -68,7 +68,7 @@ $clients = [
         <li><strong>Campus to Corporate</strong> — soft skills, aptitude, technical training and placement support</li>
         <li><strong>Educational ERP</strong> — admissions, student records, examinations, placement cell</li>
         <li><strong>Accreditation &amp; Compliance</strong> — NAAC, NBA, NIRF and AICTE readiness</li>
-        <li><strong>Incubation</strong> — helping campus ventures get built, launched and funded</li>
+        <li><strong>Incubation</strong> — training, mentoring and industry access for campus ventures</li>
       </ul>
     </div>
   </div>
@@ -106,8 +106,8 @@ $clients = [
       <article class="card">
         <span class="card-icon" aria-hidden="true">03</span>
         <h3>Incubation &amp; Entrepreneurship</h3>
-        <p>Setting up and running campus incubation — from first prototype to a
-           launched venture with mentors, funding routes and industry contacts.</p>
+        <p>Entrepreneurship training, mentoring for student ventures, incubation cell
+           setup, and access to industry mentors and funding routes.</p>
         <a class="link-arrow" href="/incubation">Explore incubation</a>
       </article>
     </div>
@@ -185,20 +185,21 @@ $clients = [
       <span class="eyebrow">Incubation &amp; Entrepreneurship</span>
       <h2>From a campus idea to a company that can stand on its own</h2>
       <p class="lead">
-        We help institutions set up incubation that works — structure, mentors,
-        industry access and the discipline to take a venture past the pitch deck.
+        We train student founders, mentor the ventures worth backing, and help
+        institutions build incubation with the structure and industry access to take
+        a venture past the pitch deck.
       </p>
       <div class="btn-row">
         <a class="btn btn-dark" href="/incubation">See incubation</a>
       </div>
     </div>
     <div class="panel">
-      <h4>Four stages we support</h4>
+      <h4>How we support campus ventures</h4>
       <ul class="feature-list">
-        <li><strong>Build</strong> — idea validation, prototyping, first users</li>
-        <li><strong>Launch</strong> — incorporation, go-to-market, early revenue</li>
-        <li><strong>Connect</strong> — mentors, industry partners, investor readiness</li>
-        <li><strong>Grow</strong> — scaling, funding routes, long-term support</li>
+        <li><strong>Entrepreneurship Training</strong> — validation, business models, MVP, pricing, IP</li>
+        <li><strong>Venture Mentoring</strong> — hands-on guidance for teams actually building</li>
+        <li><strong>Incubation Cell Setup</strong> — structure, selection, mentors, reporting</li>
+        <li><strong>Industry &amp; Funding Access</strong> — introductions, grants, investor readiness</li>
       </ul>
     </div>
   </div>
