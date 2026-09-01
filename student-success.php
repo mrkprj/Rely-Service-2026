@@ -112,14 +112,15 @@ $sections = [
       <h2>The programme in numbers</h2>
     </div>
     <?php
-      /* TODO: REPLACE the rows marked 'pending' with verified figures.
-         Sources disagreed (25,000 vs 15,000 trained; 24,500 vs 14,500 placed;
-         8.5 vs 5.5 LPA average), so nothing contested is presented as fact. */
+      /* Figures written as X's are placeholders: replace the X's with the real
+         number and the cell starts counting up automatically.
+         Trained and placed counts are pending because the source documents
+         disagreed (25,000 vs 15,000 trained; 24,500 vs 14,500 placed). */
       $stats = [
-        ['value' => '25000', 'suffix' => '+', 'caption' => 'Students trained',    'pending' => true],
-        ['value' => '24500', 'suffix' => '+', 'caption' => 'Students placed',     'pending' => true],
-        ['value' => '250',   'suffix' => '+', 'caption' => 'Trainers on our panel'],
-        ['value' => '24',    'prefix' => '₹', 'suffix' => ' LPA', 'caption' => 'Highest package offered'],
+        ['value' => 'XX,XXX', 'suffix' => '+',        'caption' => 'Students trained since we started'],
+        ['value' => 'XX,XXX', 'suffix' => '+',        'caption' => 'Students placed into roles'],
+        ['value' => '250',    'suffix' => '+',        'caption' => 'Industry trainers on our panel'],
+        ['value' => '24',     'prefix' => '₹', 'suffix' => ' LPA', 'caption' => 'Highest package offered'],
       ];
       require __DIR__ . '/includes/stats-band.php';
     ?>

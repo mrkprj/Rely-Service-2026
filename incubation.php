@@ -120,11 +120,12 @@ $sections = [
       <h2>What we bring to a centre</h2>
     </div>
     <?php
-      /* TODO: REPLACE the rows marked 'pending' with verified figures. */
+      /* Figures written as X's are placeholders: replace the X's with the real
+         number and the cell starts counting up automatically. */
       $stats = [
-        ['value' => '4',   'suffix' => '',  'caption' => 'Areas covered: setup, legal, funding, operations'],
-        ['value' => '300', 'suffix' => '+', 'caption' => 'MSME, startup and global partners', 'pending' => true],
-        ['value' => '45',  'suffix' => '',  'caption' => 'Corporate tie-ups',                 'pending' => true],
+        ['value' => 'XX',  'suffix' => '',  'caption' => 'Incubation centres set up and supported'],
+        ['value' => 'XX',  'suffix' => '+', 'caption' => 'Student ventures mentored'],
+        ['value' => 'XX',  'suffix' => '+', 'caption' => 'Mentors and industry partners on the network'],
         ['value' => '0',   'suffix' => '%', 'caption' => 'Equity we take in your ventures'],
       ];
       require __DIR__ . '/includes/stats-band.php';

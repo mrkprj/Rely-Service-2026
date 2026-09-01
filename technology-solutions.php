@@ -114,13 +114,13 @@ $sections = [
       <h2>What we have built, and what it runs on</h2>
     </div>
     <?php
-      /* TODO: REPLACE the rows marked 'pending' with verified figures.
-         They render dimmed with a dashed outline until you do. */
+      /* Figures written as X's are placeholders: replace the X's with the real
+         number and the cell starts counting up automatically. */
       $stats = [
-        ['value' => '10',  'suffix' => '+', 'caption' => 'Years building for education', 'pending' => true],
-        ['value' => '50',  'suffix' => '+', 'caption' => 'Institutions supported',       'pending' => true],
-        ['value' => '8',   'suffix' => '',  'caption' => 'Cities with active engagements'],
-        ['value' => '6',   'suffix' => '',  'caption' => 'Accreditation frameworks covered'],
+        ['value' => 'XX',     'suffix' => '+', 'caption' => 'Institutions running our systems'],
+        ['value' => 'XX,XXX', 'suffix' => '',  'caption' => 'Student records managed daily'],
+        ['value' => 'XX',     'suffix' => ' hrs', 'caption' => 'Admin hours saved per month, per institution'],
+        ['value' => '5',      'suffix' => '',  'caption' => 'Accreditation frameworks covered: NAAC, NBA, NIRF, AICTE, ISO'],
       ];
       require __DIR__ . '/includes/stats-band.php';
     ?>

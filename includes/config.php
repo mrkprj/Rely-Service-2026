@@ -21,7 +21,9 @@ define('COMPANY_EMAIL',         'tnp@relyservice.com');   // from the T&P deck
 
 // Where enquiry form submissions are delivered. Use a shared inbox, not a
 // personal one, so nothing is lost when someone is on leave.
-define('ENQUIRY_TO',   'tnp@relyservice.com');
+// Comma-separated list. Both inboxes receive every enquiry, so nothing depends
+// on forwarding rules staying in place.
+define('ENQUIRY_TO',   'digital-squad@fromdrive.com, tnp@relyservice.com');
 // Must be an address on YOUR domain or shared hosts will drop the mail.
 define('ENQUIRY_FROM', 'website@relyservice.com');       // TODO: create this mailbox
 

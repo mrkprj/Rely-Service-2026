@@ -17,8 +17,13 @@ grep -rn "TODO" --include="*.php" --include="*.css" --include="*.xml" .
 
 1. **`includes/config.php`**: company name, address, phone, email, domain, social links.
    Nearly every placeholder on the site comes from this one file.
-2. **`ENQUIRY_FROM`** must be an address *on your own domain* (e.g. `website@relyservice.in`).
-   Shared hosts silently drop mail claiming to be from Gmail or another domain.
+2. **`ENQUIRY_FROM`** must be an address *on your own domain*
+   (`website@relyservice.com`). Shared hosts silently drop mail claiming to be
+   from Gmail or another domain. Create this mailbox in cPanel before launch.
+   Enquiries are delivered to **both** `digital-squad@fromdrive.com` and
+   `tnp@relyservice.com` (`ENQUIRY_TO`, comma-separated).
+   Because one recipient is on an external domain, set up **SPF and DKIM**
+   (cPanel, Email Deliverability) or these will land in spam.
 3. **Brand colours**: the six `--brand-*` values at the top of `assets/css/style.css`.
    These are now sampled from the real logo, so they should not need changing.
 4. **Logo**: done. `assets/img/logo/` holds the trimmed lockup, a light variant
@@ -34,6 +39,16 @@ grep -rn "TODO" --include="*.php" --include="*.css" --include="*.xml" .
 8. **`privacy.php`**: a reasonable draft, but have it reviewed. It is not legal advice.
 9. **Social image**: add `assets/img/og-image.jpg` (1200 by 630) for link
    previews. Favicons are already generated from the logo mark.
+10. **Placeholder statistics.** Every figure still showing as `XX` or `XX,XXX`
+   needs a real number. They are deliberately visible so an unfilled slot reads
+   as unfilled rather than as an invented figure. Find them all with:
+
+    ```bash
+    grep -rn "'value' => 'X" --include="*.php" .
+    ```
+
+    Replace the X's with the number and the cell starts counting up on scroll
+    automatically. Nothing else needs changing.
 
 ---
 
