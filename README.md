@@ -121,6 +121,27 @@ and `$active`, write the content between the two `require` lines. Add it to
 **Changing the menu:** edit `$NAV` in `includes/config.php`. The header, the
 footer columns and the 404 page all read from it.
 
+**Adding or removing a client logo:** edit the `$clients` array at the top of
+`index.php` and drop the file into `assets/img/clients/`. Nothing else needs to
+change — `includes/client-marquee.php` adapts on its own:
+
+| Clients | What renders |
+| --- | --- |
+| 0 | nothing at all |
+| 1–3 | a centred static row |
+| 4+ | a continuous marquee |
+
+The marquee repeats the set until it comfortably exceeds the screen width (so
+there is never a visible gap after the last logo), and derives the scroll
+duration from the tile count, so it moves at the same speed with six clients or
+thirty. It pauses on hover, on keyboard focus, and via its own pause button, and
+collapses to a static wall for visitors who ask for reduced motion.
+
+Logo files should be **transparent PNG or SVG**. Tiles cap them at 2.75rem tall
+and 100% wide, but files still look best supplied at roughly consistent optical
+weight — a tall square badge next to a long wordmark will always look mismatched
+no matter what the CSS does.
+
 **Editing CSS:** after changing `style.css` or `main.js`, bump the `?v=1` in
 `includes/header.php` to `?v=2`. Browsers cache those files for a year otherwise.
 

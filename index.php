@@ -101,19 +101,7 @@ $clients = [
       <h2>Trusted by institutions that take outcomes seriously</h2>
     </div>
 
-    <ul class="logo-wall">
-      <?php foreach ($clients as $client): ?>
-        <li>
-          <div class="logo-cell">
-            <?php if ($client['logo']): ?>
-              <img src="/assets/img/clients/<?= e($client['logo']) ?>" alt="<?= e($client['name']) ?>" loading="lazy">
-            <?php else: ?>
-              <span><?= e($client['name']) ?></span>
-            <?php endif; ?>
-          </div>
-        </li>
-      <?php endforeach; ?>
-    </ul>
+    <?php require __DIR__ . '/includes/client-marquee.php'; ?>
   </div>
 </section>
 

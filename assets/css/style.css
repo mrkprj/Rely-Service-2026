@@ -599,33 +599,119 @@ strong { color: var(--ink); font-weight: 600; }
 .cta-band p { color: rgba(255,255,255,.66); margin-inline: auto; }
 .cta-band .btn-row { justify-content: center; }
 
-/* 8. Client logo wall --------------------------------------------------------- */
-.logo-wall {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
-  gap: var(--space-sm);
-  padding: 0; margin: 0;
-}
-.logo-wall li { list-style: none; }
+/* 8. Client logos ------------------------------------------------------------- */
+/* Two layouts share one tile: a static row for a handful of clients, and a
+   continuous marquee once there are enough to loop convincingly. See
+   includes/client-marquee.php — the PHP picks which one to render. */
+
 .logo-cell {
   display: grid; place-items: center;
+  flex: 0 0 auto;
+  width: var(--logo-cell-w, 12rem);
   min-height: 7rem; padding: 1.25rem;
+  list-style: none;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   transition: border-color .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease);
 }
 .logo-cell:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); border-color: transparent; }
+
+/* Cap both dimensions so a wide wordmark and a square badge sit at the same
+   optical weight. This matters more than the layout does. */
 .logo-cell img {
-  max-height: 2.75rem; width: auto;
+  max-height: 2.75rem; max-width: 100%; width: auto; object-fit: contain;
   filter: grayscale(1); opacity: .55;
-  transition: filter .25s var(--ease), opacity .25s var(--ease);
+  transition: filter .3s var(--ease), opacity .3s var(--ease);
 }
 .logo-cell:hover img { filter: none; opacity: 1; }
+
 /* Placeholder text until real logo files are dropped in */
 .logo-cell span {
   font-family: var(--font-display);
   font-size: var(--step--1); font-weight: 600; color: #b3c0cc; text-align: center;
+}
+
+/* --- Static row (few clients) --- */
+.logo-row {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: var(--space-sm);
+  padding: 0; margin: 0;
+}
+
+/* --- Marquee (many clients) --- */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  /* Fade the strip out at both edges so logos enter and leave rather than
+     being sliced off by the viewport. */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide var(--marquee-duration, 30s) linear infinite;
+}
+
+.marquee-set {
+  display: flex;
+  gap: var(--space-sm);
+  padding: 0; margin: 0;
+  /* Half the gap on each side of the seam keeps spacing even across the loop. */
+  padding-right: var(--space-sm);
+}
+
+@keyframes marquee-slide {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Pause on hover, on keyboard focus anywhere inside, and via the button.
+   Because it stops first, the greyscale-to-colour hover lands on a still logo
+   rather than a moving target. */
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track,
+.marquee.is-paused .marquee-track { animation-play-state: paused; }
+
+.marquee-pause {
+  position: absolute; right: .5rem; bottom: .5rem; z-index: 2;
+  display: grid; place-items: center;
+  width: 30px; height: 30px; padding: 0;
+  background: rgba(255,255,255,.86);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
+}
+/* Stays out of the way until it's wanted — but always reachable by keyboard. */
+.marquee:hover .marquee-pause,
+.marquee:focus-within .marquee-pause,
+.marquee-pause:focus-visible,
+.marquee.is-paused .marquee-pause { opacity: 1; }
+.marquee-pause:hover { border-color: var(--ink); transform: scale(1.06); }
+
+.marquee-pause-icon {
+  width: 9px; height: 10px;
+  background: var(--ink);
+  /* Two bars = pause. */
+  -webkit-mask: linear-gradient(#000 0 0) 0 0 / 3px 100% no-repeat,
+                linear-gradient(#000 0 0) 100% 0 / 3px 100% no-repeat;
+          mask: linear-gradient(#000 0 0) 0 0 / 3px 100% no-repeat,
+                linear-gradient(#000 0 0) 100% 0 / 3px 100% no-repeat;
+}
+/* One triangle = play, shown once paused. */
+.marquee.is-paused .marquee-pause-icon {
+  width: 10px; height: 11px;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 11'%3E%3Cpath d='M1 .8v9.4l8-4.7z' fill='%23000'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 11'%3E%3Cpath d='M1 .8v9.4l8-4.7z' fill='%23000'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+@media (max-width: 560px) {
+  .logo-cell { --logo-cell-w: 10rem; min-height: 6rem; }
 }
 
 /* 9. Pillar pages ------------------------------------------------------------- */
@@ -829,6 +915,14 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
   }
+
+  /* The marquee becomes a static, centred, wrapping wall. The duplicate set is
+     removed so no client appears twice, and the edge fade goes with it. */
+  .marquee { -webkit-mask-image: none; mask-image: none; overflow: visible; }
+  .marquee-track { width: auto; flex-wrap: wrap; justify-content: center; animation: none !important; }
+  .marquee-set { flex-wrap: wrap; justify-content: center; padding-right: 0; }
+  .marquee-set[aria-hidden="true"] { display: none; }
+  .marquee-pause { display: none; }
 }
 
 @media print {

@@ -60,8 +60,10 @@
   }
 
   /* --- Reveal on scroll --------------------------------------------------- */
+  /* Note: logo tiles are deliberately excluded — they live inside the marquee
+     track, and a reveal transform on them would fight the slide animation. */
   var revealables = document.querySelectorAll(
-    '.section-head, .card, .stat, .panel, .pillar, .logo-wall li, .hero-copy, .footer-col'
+    '.section-head, .card, .stat, .panel, .pillar, .hero-copy, .footer-col'
   );
 
   if (!reduceMotion && 'IntersectionObserver' in window && revealables.length) {
@@ -83,6 +85,21 @@
       io.observe(el);
     });
   }
+
+  /* --- Client marquee pause control --------------------------------------- */
+  /* Hover and focus already pause it in CSS; this is the explicit, persistent
+     control WCAG 2.2.2 asks for on motion lasting more than five seconds. */
+  document.querySelectorAll('.marquee').forEach(function (marquee) {
+    var btn = marquee.querySelector('.marquee-pause');
+    if (!btn) return;
+
+    btn.addEventListener('click', function () {
+      var paused = marquee.classList.toggle('is-paused');
+      btn.setAttribute('aria-pressed', String(paused));
+      btn.querySelector('.visually-hidden').textContent =
+        paused ? 'Resume the scrolling client logos' : 'Pause the scrolling client logos';
+    });
+  });
 
   /* --- Jump-nav: highlight the section you're reading --------------------- */
   var jumpLinks = document.querySelectorAll('.jump-nav a[href^="#"]');
