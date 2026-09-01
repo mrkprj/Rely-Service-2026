@@ -24,9 +24,10 @@ if (empty($_SESSION['csrf_token'])) {
 }
 
 $errors  = [];
-$old     = ['name' => '', 'institution' => '', 'email' => '', 'phone' => '', 'interest' => '', 'message' => ''];
+$old     = ['name' => '', 'phone' => '', 'email' => '', 'interest' => '', 'message' => ''];
 $sent    = isset($_GET['sent']);
 
+// Required field. Keep in step with the three practice pages.
 $INTERESTS = [
     'technology' => 'Technology Solutions',
     'student'    => 'Student Success / Campus to Corporate',
@@ -60,43 +61,39 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     }
 
     // --- Validation ----------------------------------------------------------
+    // Required: name, phone, service. Optional: email, message.
     if ($old['name'] === '') {
         $errors['name'] = 'Please tell us your name.';
-    } elseif (mb_strlen($old['name']) > 100) {
+    } elseif (str_length($old['name']) > 100) {
         $errors['name'] = 'That name looks too long.';
     }
 
-    if ($old['institution'] === '') {
-        $errors['institution'] = 'Please tell us which institution you represent.';
-    }
-
-    if ($old['email'] === '') {
-        $errors['email'] = 'We need an email address to reply to.';
-    } elseif (!filter_var($old['email'], FILTER_VALIDATE_EMAIL)) {
-        $errors['email'] = 'That email address doesn\'t look right.';
-    }
-
-    if ($old['phone'] !== '') {
+    if ($old['phone'] === '') {
+        $errors['phone'] = 'Please give us a number we can reach you on.';
+    } else {
         $digits = preg_replace('/\D/', '', $old['phone']);
         if (strlen($digits) < 8 || strlen($digits) > 15) {
-            $errors['phone'] = 'Please enter a valid phone number, or leave it blank.';
+            $errors['phone'] = 'Please enter a valid phone number.';
         }
     }
 
-    if ($old['interest'] !== '' && !isset($INTERESTS[$old['interest']])) {
+    // Optional, but must be valid if given, or a reply will bounce.
+    if ($old['email'] !== '' && !filter_var($old['email'], FILTER_VALIDATE_EMAIL)) {
+        $errors['email'] = 'That email address doesn\'t look right.';
+    }
+
+    if ($old['interest'] === '') {
+        $errors['interest'] = 'Please tell us which service you are asking about.';
+    } elseif (!isset($INTERESTS[$old['interest']])) {
         $errors['interest'] = 'Please choose one of the listed options.';
     }
 
-    if ($old['message'] === '') {
-        $errors['message'] = 'Please tell us briefly what you need.';
-    } elseif (mb_strlen($old['message']) < 15) {
-        $errors['message'] = 'A little more detail helps us route your enquiry.';
-    } elseif (mb_strlen($old['message']) > 4000) {
+    if ($old['message'] !== '' && str_length($old['message']) > 4000) {
         $errors['message'] = 'Please keep this under 4000 characters.';
     }
 
     // Header-injection guard: newlines have no business in these fields.
-    foreach (['name', 'institution', 'email', 'phone'] as $k) {
+    foreach (['name', 'email', 'phone'] as $k) {
         if (preg_match('/[\r\n]/', $old[$k])) {
             $errors[$k] = 'That value contains invalid characters.';
         }
@@ -106,15 +103,14 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     if (!$errors) {
         $interest = $INTERESTS[$old['interest']] ?? 'Not specified';
 
-        $subject = 'Website enquiry: ' . $old['institution'];
+        $subject = 'Website enquiry: ' . $interest . ' (' . $old['name'] . ')';
         $body    = "New enquiry from the Rely Service website\n"
                  . str_repeat('-', 52) . "\n\n"
-                 . "Name:        {$old['name']}\n"
-                 . "Institution: {$old['institution']}\n"
-                 . "Email:       {$old['email']}\n"
-                 . "Phone:       " . ($old['phone'] !== '' ? $old['phone'] : 'Not provided') . "\n"
-                 . "Interest:    {$interest}\n\n"
-                 . "Message:\n{$old['message']}\n\n"
+                 . "Name:    {$old['name']}\n"
+                 . "Phone:   {$old['phone']}\n"
+                 . "Email:   " . ($old['email'] !== '' ? $old['email'] : 'Not provided') . "\n"
+                 . "Service: {$interest}\n\n"
+                 . "Message:\n" . ($old['message'] !== '' ? $old['message'] : '(none given)') . "\n\n"
                  . str_repeat('-', 52) . "\n"
                  . 'Received: ' . date('d M Y, H:i') . " IST\n"
                  . 'IP:       ' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown') . "\n";
@@ -123,10 +119,14 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         // Reply-To is what makes "Reply" in your mail client go to the enquirer.
         $headers = [
             'From: ' . SITE_NAME . ' Website <' . ENQUIRY_FROM . '>',
-            'Reply-To: ' . $old['name'] . ' <' . $old['email'] . '>',
             'Content-Type: text/plain; charset=UTF-8',
             'X-Mailer: PHP/' . phpversion(),
         ];
+        // Only set Reply-To when an address was actually given, otherwise the
+        // header is malformed and some hosts reject the whole message.
+        if ($old['email'] !== '') {
+            array_splice($headers, 1, 0, 'Reply-To: ' . $old['name'] . ' <' . $old['email'] . '>');
+        }
 
         $ok = @mail(ENQUIRY_TO, $subject, $body, implode("\r\n", $headers), '-f' . ENQUIRY_FROM);
 
@@ -164,11 +164,11 @@ function enquiry_log(array $data, string $interest, bool $mailed): void
     }
     if (flock($fh, LOCK_EX)) {
         if ($new) {
-            fputcsv($fh, ['timestamp', 'name', 'institution', 'email', 'phone', 'interest', 'message', 'mail_sent']);
+            fputcsv($fh, ['timestamp', 'name', 'phone', 'email', 'service', 'message', 'mail_sent']);
         }
         fputcsv($fh, [
-            date('c'), $data['name'], $data['institution'], $data['email'],
-            $data['phone'], $interest, $data['message'], $mailed ? 'yes' : 'no',
+            date('c'), $data['name'], $data['phone'], $data['email'],
+            $interest, $data['message'], $mailed ? 'yes' : 'no',
         ]);
         flock($fh, LOCK_UN);
     }

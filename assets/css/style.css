@@ -25,29 +25,32 @@
 :root {
   /* Brand, sampled from the logo file. */
   --brand-cyan:    #00a0e3;
+  --brand-cyan-lt: #3dbdf0;   /* glow / dark-background variant */
   --brand-blue:    #1874bb;
   --brand-indigo:  #3a3d8a;
-  --brand-ink:     #2b2a29;
+  --brand-indigo-dp: #262a63;
 
   --brand-gradient: linear-gradient(150deg, var(--brand-cyan) 0%, var(--brand-blue) 48%, var(--brand-indigo) 100%);
+  --brand-gradient-flat: linear-gradient(90deg, var(--brand-cyan), var(--brand-indigo));
 
-  /* Neutrals: cool, light, plenty of air. */
-  --ink:         #17181c;
-  --ink-2:       #3f4750;
-  --muted:       #6b7683;
-  --line:        #e6ebf0;
-  --line-soft:   #eef2f6;
+  /* Neutrals: cooler and deeper than before, for contrast and a technical feel. */
+  --ink:         #0b1220;
+  --ink-2:       #3a4658;
+  --muted:       #6a7789;
+  --line:        #e2e8f0;
+  --line-soft:   #eef2f7;
   --surface:     #ffffff;
-  --surface-2:   #f7f9fb;
-  --surface-3:   #eef3f8;
-  --invert:      #ffffff;
+  --surface-2:   #f5f8fc;
+  --surface-3:   #e9f0f8;
 
-  /* Dark sections */
-  --dark:        #14171f;
-  --dark-2:      #1c2130;
+  /* Dark sections: near-black navy so the brand gradient reads as light. */
+  --dark:        #060a14;
+  --dark-2:      #0d1526;
+  --dark-line:   rgba(255,255,255,.09);
 
   --font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Type scale, a little larger and airier than default. */
   --step--1: clamp(0.82rem, 0.79rem + 0.14vw, 0.89rem);
@@ -68,16 +71,18 @@
   --radius-lg:  24px;
   --radius-xl:  32px;
 
-  /* Soft, low-contrast shadows. Chic means restrained. */
-  --shadow-xs: 0 1px 2px rgba(23, 24, 28, .04);
-  --shadow-sm: 0 2px 4px rgba(23, 24, 28, .04), 0 6px 16px rgba(23, 24, 28, .04);
-  --shadow-md: 0 4px 10px rgba(23, 24, 28, .05), 0 18px 40px rgba(23, 24, 28, .07);
-  --shadow-lg: 0 8px 20px rgba(23, 24, 28, .06), 0 32px 70px rgba(23, 24, 28, .10);
-  --glow:      0 12px 32px rgba(24, 116, 187, .28);
+  --shadow-xs: 0 1px 2px rgba(11, 18, 32, .05);
+  --shadow-sm: 0 2px 4px rgba(11, 18, 32, .04), 0 6px 16px rgba(11, 18, 32, .05);
+  --shadow-md: 0 4px 10px rgba(11, 18, 32, .06), 0 18px 40px rgba(11, 18, 32, .08);
+  --shadow-lg: 0 8px 20px rgba(11, 18, 32, .07), 0 32px 70px rgba(11, 18, 32, .12);
+  --glow:      0 10px 30px rgba(0, 160, 227, .30);
 
-  --container: 1200px;
+  /* Wider than before so the layout runs closer to the edges. */
+  --container: 1440px;
+  --gutter:    clamp(1rem, 3.2vw, 3rem);
   --header-h:  80px;
   --ease:      cubic-bezier(.22, .61, .36, 1);
+  --ease-out:  cubic-bezier(.16, 1, .3, 1);
 }
 
 /* 2. Reset & base ---------------------------------------------------------- */
@@ -151,7 +156,7 @@ strong { color: var(--ink); font-weight: 600; }
 }
 
 /* 3. Layout helpers -------------------------------------------------------- */
-.container { width: min(100% - 2.5rem, var(--container)); margin-inline: auto; }
+.container { width: min(100% - (var(--gutter) * 2), var(--container)); margin-inline: auto; }
 
 .section { padding-block: var(--space-xl); position: relative; }
 .section--tint { background: var(--surface-2); }
@@ -911,6 +916,179 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
 .footer-bottom p { margin: 0; }
 .footer-legal { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
 
+/* 11b. Stats bands, AI callouts and richer interaction ------------------------ */
+
+/* --- Stats band -------------------------------------------------------------
+   Used on every service page. Figures count up once, when scrolled into view.
+   Without JS (or with reduced motion) the final value is already in the HTML. */
+.stats-band {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 1px;
+  background: var(--dark-line);
+  border: 1px solid var(--dark-line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.stat-cell {
+  padding: clamp(1.5rem, 2.6vw, 2.25rem);
+  background: var(--dark-2);
+  transition: background-color .3s var(--ease);
+}
+.stat-cell:hover { background: #131d33; }
+
+.stat-value {
+  display: flex; align-items: baseline; gap: .1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 1.3rem + 2.2vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  line-height: 1;
+  background: linear-gradient(120deg, var(--brand-cyan-lt), #8f9cf5);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  margin-bottom: .55rem;
+}
+.stat-caption {
+  font-size: var(--step--1);
+  color: rgba(255,255,255,.60);
+  line-height: 1.5;
+}
+/* Light variant, for stats bands placed on a white section. */
+.stats-band--light { background: var(--line); border-color: var(--line); }
+.stats-band--light .stat-cell { background: var(--surface); }
+.stats-band--light .stat-cell:hover { background: var(--surface-2); }
+.stats-band--light .stat-value {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.stats-band--light .stat-caption { color: var(--muted); }
+
+/* Placeholder figures awaiting verified numbers. Deliberately conspicuous so
+   they cannot be shipped by accident. Delete this rule with the last one. */
+.stat-value[data-pending="1"] { opacity: .45; }
+.stat-cell[data-pending="1"] { outline: 1px dashed rgba(255,180,0,.5); outline-offset: -1px; }
+
+/* --- AI callout -------------------------------------------------------------
+   A distinct block used inside each service section to name the AI capability
+   concretely, rather than sprinkling the word through the prose. */
+.ai-note {
+  position: relative;
+  margin-top: var(--space-md);
+  padding: 1.35rem 1.5rem 1.35rem 1.65rem;
+  background: linear-gradient(135deg, rgba(0,160,227,.07), rgba(58,61,138,.06));
+  border: 1px solid rgba(0,160,227,.20);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.ai-note::before {
+  content: "";
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--brand-gradient-flat);
+}
+.ai-label {
+  display: inline-flex; align-items: center; gap: .45rem;
+  font-family: var(--font-display);
+  font-size: .7rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--brand-blue);
+  margin-bottom: .5rem;
+}
+.ai-label::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--brand-cyan);
+  box-shadow: 0 0 0 3px rgba(0,160,227,.18);
+  animation: ai-pulse 2.4s var(--ease) infinite;
+}
+@keyframes ai-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(0,160,227,.18); }
+  50%      { box-shadow: 0 0 0 7px rgba(0,160,227,0); }
+}
+.ai-note p { font-size: var(--step--1); color: var(--ink-2); margin: 0; max-width: none; }
+.section--ink .ai-note {
+  background: linear-gradient(135deg, rgba(0,160,227,.10), rgba(58,61,138,.10));
+  border-color: rgba(0,160,227,.26);
+}
+.section--ink .ai-note p { color: rgba(255,255,255,.72); }
+.section--ink .ai-label { color: var(--brand-cyan-lt); }
+
+/* --- Animated waveform, the site's signature motif -------------------------- */
+/* Bars breathe continuously at low amplitude. This is the one piece of
+   always-on motion, and it is small, slow and off to the side. */
+.js .wave span {
+  animation: wave-breathe 2.8s var(--ease) infinite;
+  transform-origin: bottom;
+}
+.js .wave span:nth-child(1) { animation-delay: 0s; }
+.js .wave span:nth-child(2) { animation-delay: .16s; }
+.js .wave span:nth-child(3) { animation-delay: .32s; }
+.js .wave span:nth-child(4) { animation-delay: .48s; }
+.js .wave span:nth-child(5) { animation-delay: .64s; }
+@keyframes wave-breathe {
+  0%, 100% { transform: scaleY(1); }
+  50%      { transform: scaleY(.55); }
+}
+
+/* --- Card hover: gradient hairline instead of a heavier shadow -------------- */
+.card { position: relative; isolation: isolate; }
+.card::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--brand-gradient);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0;
+  transition: opacity .3s var(--ease);
+  pointer-events: none;
+  z-index: -1;
+}
+.card:hover::after { opacity: 1; }
+
+/* --- Pointer-tracked glow on the hero panel --------------------------------- */
+/* --mx/--my are set by JS in px; the glow simply follows the cursor. */
+.hero-panel { position: relative; overflow: hidden; }
+.hero-panel::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(20rem 20rem at var(--mx, 50%) var(--my, 0%),
+                              rgba(0,160,227,.13), transparent 65%);
+  opacity: 0;
+  transition: opacity .35s var(--ease);
+  pointer-events: none;
+}
+.hero-panel:hover::before { opacity: 1; }
+.hero-panel > * { position: relative; }
+
+/* --- Dark sections get a faint technical grid ------------------------------- */
+.section--ink::after, .cta-band::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 0%, #000, transparent 78%);
+  pointer-events: none;
+}
+
+/* --- Buttons: sheen sweep on hover ------------------------------------------ */
+.btn-primary { overflow: hidden; }
+.btn-primary::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.30) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform .65s var(--ease-out);
+  pointer-events: none;
+}
+.btn-primary:hover::after { transform: translateX(120%); }
+
+/* --- Section links list, used for in-page navigation on service pages ------- */
+.section--ink .feature-list li::before { opacity: 1; }
+
 /* 12. Reveal animation, motion & print ----------------------------------------- */
 /* Elements fade up as they scroll in. JS adds .is-visible; without JS the
    .reveal class is never applied, so content is always visible by default. */
@@ -941,6 +1119,12 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
   .marquee-set { flex-wrap: wrap; justify-content: center; padding-right: 0; }
   .marquee-set[aria-hidden="true"] { display: none; }
   .marquee-pause { display: none; }
+
+  /* Silence the new always-on motion too. */
+  .js .wave span { animation: none !important; }
+  .ai-label::before { animation: none !important; }
+  .btn-primary::after { display: none; }
+  .hero-panel::before { display: none; }
 }
 
 @media print {

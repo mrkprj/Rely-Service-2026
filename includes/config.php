@@ -12,11 +12,10 @@ define('SITE_TAGLINE', 'Technology, talent and enterprise for education');
 // TODO: CONFIRM. The presentation uses relyservice.com, this was set up as .in.
 define('SITE_URL',     'https://www.relyservice.com');  // real domain, no trailing slash
 
-define('COMPANY_ADDRESS_LINE1', '[Office address line 1]');
-define('COMPANY_ADDRESS_LINE2', '[Area, Landmark]');
+// Offices are shown as locations only, not a full postal address.
 define('COMPANY_CITY',          'Mumbai');
 define('COMPANY_STATE',         'Maharashtra');
-define('COMPANY_PIN',           '400001');
+$COMPANY_LOCATIONS = ['Malad', 'Worli'];
 define('COMPANY_PHONE',         '+91 98190 32403');       // from the T&P deck
 define('COMPANY_EMAIL',         'tnp@relyservice.com');   // from the T&P deck
 
@@ -79,14 +78,37 @@ function e(?string $s): string
     return htmlspecialchars((string) $s, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
-/** Full postal address on one line. */
-function company_address_inline(): string
+/** Offices as one readable line, e.g. "Malad and Worli, Mumbai". */
+function company_locations_inline(): string
 {
-    return implode(', ', array_filter([
-        COMPANY_ADDRESS_LINE1,
-        COMPANY_ADDRESS_LINE2,
-        COMPANY_CITY . ' ' . COMPANY_PIN,
-    ]));
+    global $COMPANY_LOCATIONS;
+    $n = count($COMPANY_LOCATIONS);
+    if ($n === 0) {
+        return COMPANY_CITY;
+    }
+    $joined = $n === 1
+        ? $COMPANY_LOCATIONS[0]
+        : implode(', ', array_slice($COMPANY_LOCATIONS, 0, -1)) . ' and ' . end($COMPANY_LOCATIONS);
+
+    return $joined . ', ' . COMPANY_CITY;
+}
+
+/**
+ * Character count that does not require the mbstring extension.
+ *
+ * mbstring is not guaranteed on shared hosting, and mb_strlen() being missing
+ * is a fatal error rather than a warning, so a form submission would take the
+ * whole page down. PCRE with the /u modifier is compiled into PHP by default,
+ * which makes it the safer dependency.
+ */
+function str_length(string $s): int
+{
+    if (function_exists('mb_strlen')) {
+        return mb_strlen($s, 'UTF-8');
+    }
+    $count = preg_match_all('/./us', $s);
+    // preg_* returns false on malformed UTF-8; byte length is a safe upper bound.
+    return $count === false ? strlen($s) : $count;
 }
 
 /** Phone stripped to digits for tel: links. */

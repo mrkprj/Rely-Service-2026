@@ -44,9 +44,7 @@
       <div class="footer-col footer-contact">
         <h2 class="footer-heading">Get in touch</h2>
         <address>
-          <?= e(COMPANY_ADDRESS_LINE1) ?><br>
-          <?= e(COMPANY_ADDRESS_LINE2) ?><br>
-          <?= e(COMPANY_CITY) ?> <?= e(COMPANY_PIN) ?>, <?= e(COMPANY_STATE) ?><br><br>
+          <?= e(company_locations_inline()) ?><br><br>
           <a href="tel:<?= e(company_phone_href()) ?>"><?= e(COMPANY_PHONE) ?></a><br>
           <a href="mailto:<?= e(COMPANY_EMAIL) ?>"><?= e(COMPANY_EMAIL) ?></a>
         </address>
@@ -65,6 +63,6 @@
   </div>
 </footer>
 
-<script src="/assets/js/main.js?v=3" defer></script>
+<script src="/assets/js/main.js?v=4" defer></script>
 </body>
 </html>

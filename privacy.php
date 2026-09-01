@@ -82,7 +82,7 @@ require __DIR__ . '/includes/header.php';
     <h2>Contact</h2>
     <address style="font-style:normal">
       <?= e(SITE_NAME) ?><br>
-      <?= e(company_address_inline()) ?><br>
+      <?= e(company_locations_inline()) ?><br>
       <a href="mailto:<?= e(COMPANY_EMAIL) ?>"><?= e(COMPANY_EMAIL) ?></a><br>
       <a href="tel:<?= e(company_phone_href()) ?>"><?= e(COMPANY_PHONE) ?></a>
     </address>

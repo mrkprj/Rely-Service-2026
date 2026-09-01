@@ -9,7 +9,12 @@
  *     'lead'  => 'One-sentence summary.',
  *     'body'  => ['Paragraph one.', 'Paragraph two.'],
  *     'panel' => ['heading' => 'What this includes', 'items' => ['...', '...']],
+ *     'ai'    => 'One concrete sentence on the AI capability in this area.',
  *   ]
+ *
+ * The 'ai' key is optional but should be present on every service section. Keep
+ * it specific and checkable: name the thing the AI actually does. Vague claims
+ * are what buyers have learnt to discount.
  */
 ?>
 <nav class="jump-nav" aria-label="Sections on this page">
@@ -37,6 +42,13 @@
             <?php foreach ($s['body'] as $para): ?>
               <p><?= e($para) ?></p>
             <?php endforeach; ?>
+
+            <?php if (!empty($s['ai'])): ?>
+              <div class="ai-note">
+                <span class="ai-label">AI in this area</span>
+                <p><?= e($s['ai']) ?></p>
+              </div>
+            <?php endif; ?>
 
             <?php if (!empty($s['panel'])): ?>
               <div class="panel" style="margin-top:var(--space-md)">

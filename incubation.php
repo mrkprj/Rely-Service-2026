@@ -20,6 +20,7 @@ $sections = [
             'Establishing an incubation centre involves a great deal more than allocating a room and announcing it. It needs a defined purpose, an intake process, a support model that ventures are genuinely entitled to, and someone accountable for outcomes. Institutions rarely have that expertise in-house, and it is not the kind of thing that is easily learnt on a first attempt.',
             'We bring it. We work with your management to design the centre around what your institution can realistically sustain (its streams, its student profile, its regional industry) and then set it up: structure, policy, process, infrastructure and the recognitions worth pursuing.',
         ],
+        'ai'    => 'We benchmark your proposed centre against how comparable institutions have structured theirs, using AI to work through published incubation policies and annual reports far faster than a manual review would allow.',
         'panel' => [
             'heading' => 'What setup covers',
             'items'   => [
@@ -40,6 +41,7 @@ $sections = [
             'The questions that damage campus incubation are almost always legal ones left unanswered: who owns the intellectual property a student developed using institutional resources, what the institution is entitled to if a venture succeeds, what happens when a founder graduates or leaves, and what the centre is liable for.',
             'We help you put that framework in place: the entity structure, the agreements, the IP and equity policy, and the governance that keeps the centre accountable to your management committee. Institutions that settle this early avoid the disputes that quietly close incubation centres down.',
         ],
+        'ai'    => 'AI-assisted document review checks your IP, equity and incubatee agreements for the gaps that cause disputes later, and keeps the policy set current as regulation changes.',
         'panel' => [
             'heading' => 'What this covers',
             'items'   => [
@@ -60,6 +62,7 @@ $sections = [
             'An incubation centre has its own financial life: a budget, sustainability targets, and often grant or scheme funding it is eligible for and unaware of. Separately, the ventures inside it need access to seed capital, and student founders are rarely equipped to raise it.',
             'We work on both. For the centre, that means financial structure, budgeting and identifying the government schemes and institutional funding routes it can access. For the ventures, it means readiness: knowing what an investor will ask, and being able to answer.',
         ],
+        'ai'    => 'Grant and scheme matching is automated: ventures are screened against central and state schemes they qualify for, so opportunities are not missed simply because nobody had time to read the eligibility criteria.',
         'panel' => [
             'heading' => 'What this covers',
             'items'   => [
@@ -80,6 +83,7 @@ $sections = [
             'A great many campus incubation cells are opened with enthusiasm and are quiet within two years, not because the idea was wrong, but because nobody owned the running of it. Operations are where incubation succeeds or fails.',
             'We build and manage the mentor network, run the entrepreneurship programmes that feed the pipeline, structure the cohort calendar, connect ventures to our industry network, and keep the reporting your management committee needs. Where a centre already exists and has stalled, this is usually the part that needs rebuilding.',
         ],
+        'ai'    => 'Mentor matching is data-driven rather than whoever is free, pairing ventures to expertise by sector and stage, and progress across the cohort is tracked so a team that has stopped moving is visible early.',
         'panel' => [
             'heading' => 'What this covers',
             'items'   => [
@@ -108,6 +112,25 @@ $sections = [
     </p>
   </div>
 </section>
+
+<div class="section section--ink section--tight">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Incubation support</span>
+      <h2>What we bring to a centre</h2>
+    </div>
+    <?php
+      /* TODO: REPLACE the rows marked 'pending' with verified figures. */
+      $stats = [
+        ['value' => '4',   'suffix' => '',  'caption' => 'Areas covered: setup, legal, funding, operations'],
+        ['value' => '300', 'suffix' => '+', 'caption' => 'MSME, startup and global partners', 'pending' => true],
+        ['value' => '45',  'suffix' => '',  'caption' => 'Corporate tie-ups',                 'pending' => true],
+        ['value' => '0',   'suffix' => '%', 'caption' => 'Equity we take in your ventures'],
+      ];
+      require __DIR__ . '/includes/stats-band.php';
+    ?>
+  </div>
+</div>
 
 <?php require __DIR__ . '/includes/pillar-sections.php'; ?>
 

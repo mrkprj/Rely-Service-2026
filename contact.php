@@ -72,30 +72,8 @@ require __DIR__ . '/includes/header.php';
           </div>
 
           <div class="field">
-            <label for="institution">Institution / organisation <span class="req" aria-hidden="true">*</span></label>
-            <input type="text" id="institution" name="institution" required autocomplete="organization"
-                   value="<?= e($old['institution']) ?>"
-                   <?= isset($errors['institution']) ? 'aria-invalid="true" aria-describedby="err-institution"' : '' ?>>
-            <?php if (isset($errors['institution'])): ?>
-              <p class="field-error" id="err-institution"><?= e($errors['institution']) ?></p>
-            <?php endif; ?>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="field">
-            <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
-            <input type="email" id="email" name="email" required autocomplete="email"
-                   value="<?= e($old['email']) ?>"
-                   <?= isset($errors['email']) ? 'aria-invalid="true" aria-describedby="err-email"' : '' ?>>
-            <?php if (isset($errors['email'])): ?>
-              <p class="field-error" id="err-email"><?= e($errors['email']) ?></p>
-            <?php endif; ?>
-          </div>
-
-          <div class="field">
-            <label for="phone">Phone <span class="hint">(optional)</span></label>
-            <input type="tel" id="phone" name="phone" autocomplete="tel"
+            <label for="phone">Phone number <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" required autocomplete="tel"
                    value="<?= e($old['phone']) ?>"
                    <?= isset($errors['phone']) ? 'aria-invalid="true" aria-describedby="err-phone"' : '' ?>>
             <?php if (isset($errors['phone'])): ?>
@@ -105,26 +83,40 @@ require __DIR__ . '/includes/header.php';
         </div>
 
         <div class="field">
-          <label for="interest">What is this about?</label>
-          <select id="interest" name="interest">
-            <option value="">Select one</option>
+          <label for="interest">Which service? <span class="req" aria-hidden="true">*</span></label>
+          <select id="interest" name="interest" required
+                  <?= isset($errors['interest']) ? 'aria-invalid="true" aria-describedby="err-interest"' : '' ?>>
+            <option value="">Select a service</option>
             <?php foreach ($INTERESTS as $value => $label): ?>
               <option value="<?= e($value) ?>" <?= $old['interest'] === $value ? 'selected' : '' ?>>
                 <?= e($label) ?>
               </option>
             <?php endforeach; ?>
           </select>
+          <?php if (isset($errors['interest'])): ?>
+            <p class="field-error" id="err-interest"><?= e($errors['interest']) ?></p>
+          <?php endif; ?>
         </div>
 
         <div class="field">
-          <label for="message">How can we help? <span class="req" aria-hidden="true">*</span></label>
-          <textarea id="message" name="message" required
+          <label for="email">Email <span class="hint">(optional)</span></label>
+          <input type="email" id="email" name="email" autocomplete="email"
+                 value="<?= e($old['email']) ?>"
+                 <?= isset($errors['email']) ? 'aria-invalid="true" aria-describedby="err-email"' : '' ?>>
+          <?php if (isset($errors['email'])): ?>
+            <p class="field-error" id="err-email"><?= e($errors['email']) ?></p>
+          <?php else: ?>
+            <p class="hint">Add one if you would rather we replied in writing.</p>
+          <?php endif; ?>
+        </div>
+
+        <div class="field">
+          <label for="message">Anything you would like to add? <span class="hint">(optional)</span></label>
+          <textarea id="message" name="message"
                     <?= isset($errors['message']) ? 'aria-invalid="true" aria-describedby="err-message"' : '' ?>
           ><?= e($old['message']) ?></textarea>
           <?php if (isset($errors['message'])): ?>
             <p class="field-error" id="err-message"><?= e($errors['message']) ?></p>
-          <?php else: ?>
-            <p class="hint">A few lines about your institution and what you're trying to achieve.</p>
           <?php endif; ?>
         </div>
 
@@ -141,13 +133,13 @@ require __DIR__ . '/includes/header.php';
 
     <aside class="contact-aside">
       <div class="panel">
-        <h4>Rely Service</h4>
-        <address>
-          <?= e(COMPANY_ADDRESS_LINE1) ?><br>
-          <?= e(COMPANY_ADDRESS_LINE2) ?><br>
-          <?= e(COMPANY_CITY) ?> <?= e(COMPANY_PIN) ?><br>
-          <?= e(COMPANY_STATE) ?>, India
-        </address>
+        <h4>Where we are</h4>
+        <p class="hint" style="margin-bottom:.85rem">Two offices in Mumbai</p>
+        <ul class="feature-list">
+          <?php foreach ($COMPANY_LOCATIONS as $location): ?>
+            <li><strong><?= e($location) ?></strong></li>
+          <?php endforeach; ?>
+        </ul>
       </div>
 
       <div class="panel">
@@ -160,10 +152,12 @@ require __DIR__ . '/includes/header.php';
       </div>
 
       <div class="panel">
-        <h4>Visiting us</h4>
-        <!-- TODO: replace the src with your own Google Maps embed URL
-             (Google Maps → Share → Embed a map → copy the src). -->
-        <p class="hint">Map embed goes here once the office address is confirmed.</p>
+        <h4>What happens next</h4>
+        <ul class="feature-list">
+          <li>We call you back, usually within two working days</li>
+          <li>A short conversation about what you need</li>
+          <li>A written outline if it looks like a fit</li>
+        </ul>
       </div>
     </aside>
 

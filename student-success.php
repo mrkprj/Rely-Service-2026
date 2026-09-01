@@ -15,6 +15,7 @@ $sections = [
             'Soft skills are usually taught on campus at a level that is fine for college and insufficient for a workplace. We start by rebuilding them properly: spoken and written communication, email etiquette, listening, and the confidence to hold a room.',
             'Quantitative aptitude runs alongside it, because most large recruiters gate the entire process behind an aptitude test. Students practise on the kinds of assessments they will actually sit.',
         ],
+        'ai'    => 'Aptitude practice adapts to the individual: the system tracks which question types a student keeps losing marks on and weights their next set towards those, so weak areas get the repetitions instead of the whole cohort repeating the same paper.',
         'panel' => [
             'heading' => 'Covered in this module',
             'items'   => [
@@ -35,6 +36,7 @@ $sections = [
             'Plenty of students who can do the job still lose the offer at the interview. This module works on that gap: how they present on paper, how they hold up in a group discussion, and how they handle a panel that has forty other candidates to see that day.',
             'Mock group discussions and interviews are run to the standard of the recruiters who actually visit your campus, with individual feedback rather than a single group debrief.',
         ],
+        'ai'    => 'AI reviews a CV against the roles a student is actually targeting and returns specific rewrites, and recorded mock interviews are analysed for pace, filler words and structure so feedback is concrete rather than impressionistic.',
         'panel' => [
             'heading' => 'Covered in this module',
             'items'   => [
@@ -54,6 +56,7 @@ $sections = [
             'Syllabi update slowly; industry does not. This module closes the distance with hands-on training in the tools and technologies each stream is actually hiring for, taught by practising professionals rather than from a textbook.',
             'The catalogue is deep and stream-specific: Data Science, IoT, Robotics, AI and ML, cloud, cyber security and full-stack for engineering and polytechnic; AutoCAD, SolidWorks, CATIA and CNC for mechanical; VLSI, PLC/SCADA, embedded systems and PCB design for electrical; STAAD Pro, Revit and Primavera for civil; digital marketing, business analytics and ERP for management; clinical research, GMP and pharmaceutical data for pharma; SEO, design and digital content for mass media.',
         ],
+        'ai'    => 'AI and Machine Learning are taught as part of the technical catalogue across streams, alongside data science, cloud and cyber security, so students enter the market fluent in the tools employers are hiring for now.',
         'panel' => [
             'heading' => 'Streams we train',
             'items'   => [
@@ -74,6 +77,7 @@ $sections = [
             'Training only goes so far without exposure. Students are placed into internships in their own domain, running from four weeks to six months depending on the course, with partners spanning startups, MSMEs and multinationals.',
             'On-the-job training bridges what remains between theory and practice, and mentorship comes from professionals working in industry, including at the global technology firms most students only read about.',
         ],
+        'ai'    => 'Predictive career guidance maps a student\'s academic record, skills and interests against real hiring patterns to surface roles and sectors they had not considered, before internship placement rather than after.',
         'panel' => [
             'heading' => 'What students get',
             'items'   => [
@@ -100,6 +104,27 @@ $sections = [
     </p>
   </div>
 </section>
+
+<div class="section section--ink section--tight">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Campus to Corporate</span>
+      <h2>The programme in numbers</h2>
+    </div>
+    <?php
+      /* TODO: REPLACE the rows marked 'pending' with verified figures.
+         Sources disagreed (25,000 vs 15,000 trained; 24,500 vs 14,500 placed;
+         8.5 vs 5.5 LPA average), so nothing contested is presented as fact. */
+      $stats = [
+        ['value' => '25000', 'suffix' => '+', 'caption' => 'Students trained',    'pending' => true],
+        ['value' => '24500', 'suffix' => '+', 'caption' => 'Students placed',     'pending' => true],
+        ['value' => '250',   'suffix' => '+', 'caption' => 'Trainers on our panel'],
+        ['value' => '24',    'prefix' => '₹', 'suffix' => ' LPA', 'caption' => 'Highest package offered'],
+      ];
+      require __DIR__ . '/includes/stats-band.php';
+    ?>
+  </div>
+</div>
 
 <?php require __DIR__ . '/includes/pillar-sections.php'; ?>
 

@@ -101,6 +101,55 @@
     });
   });
 
+  /* --- Stat counters ------------------------------------------------------ */
+  /* The final value is already in the HTML. This only replaces it temporarily
+     with a count-up once the band scrolls into view, so the page is correct
+     with JS off and under reduced motion. */
+  var counters = document.querySelectorAll('[data-count-to]');
+  if (!reduceMotion && 'IntersectionObserver' in window && counters.length) {
+    var format = function (n) { return n.toLocaleString('en-IN'); };
+
+    var runCount = function (el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10);
+      if (isNaN(target)) return;
+      var final = el.textContent;
+      var duration = 1500;
+      var started = null;
+
+      var step = function (now) {
+        if (started === null) started = now;
+        var progress = Math.min((now - started) / duration, 1);
+        // easeOutExpo, so it decelerates into the real figure.
+        var eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+        el.textContent = format(Math.round(target * eased));
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = final;   // restore exact original formatting
+      };
+      requestAnimationFrame(step);
+    };
+
+    var countObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        runCount(entry.target);
+        countObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.4 });
+
+    counters.forEach(function (el) { countObserver.observe(el); });
+  }
+
+  /* --- Pointer-tracked glow ------------------------------------------------ */
+  if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.hero-panel').forEach(function (panel) {
+      panel.addEventListener('pointermove', function (e) {
+        var r = panel.getBoundingClientRect();
+        panel.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        panel.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
   /* --- Jump-nav: highlight the section you're reading --------------------- */
   var jumpLinks = document.querySelectorAll('.jump-nav a[href^="#"]');
   if (jumpLinks.length && 'IntersectionObserver' in window) {
