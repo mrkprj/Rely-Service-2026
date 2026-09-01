@@ -1,16 +1,19 @@
-# Website content — fill this in
+# Website content: fill this in
 
 This file is the **single place to write your website text**. Fill in the blanks
-below, save the file, and tell me it's ready — I'll transfer everything into the
+below, save the file, and tell me it's ready, and I'll transfer everything into the
 site. You never need to touch the PHP.
 
 **How to use it**
 
 - Write plain text under each heading. Don't worry about formatting, HTML, or
-  length limits — I'll handle the fitting.
+  length limits. I'll handle the fitting.
 - Where a character count is suggested, treat it as a guide, not a rule.
 - Leave anything you're unsure about as `TBD` and I'll keep the placeholder.
 - Anything marked **Required** blocks launch; the rest can follow later.
+
+**House style:** no long dashes anywhere in the website text. Use commas, colons,
+brackets or a full stop instead. This applies to everything published on the site.
 
 You can also just paste all of this into the chat instead of editing the file,
 or drop a Word/PDF/Google Doc export into this folder and point me at it. The
@@ -18,7 +21,7 @@ file is simply the tidiest option because it stays put between our conversations
 
 ---
 
-## 1. Company basics — **Required**
+## 1. Company basics (Required)
 
 | Field | Your answer |
 | --- | --- |
@@ -34,22 +37,22 @@ file is simply the tidiest option because it stays put between our conversations
 | Website domain you've bought (or plan to) | |
 | LinkedIn URL | |
 | Instagram URL (leave blank to hide) | |
-| Office hours | Mon–Fri, 10:00–18:30 IST |
+| Office hours | Mon to Fri, 10:00 to 18:30 IST |
 | Year the company started | |
 
 ---
 
 ## 2. Homepage
 
-### 2a. Hero — **Required**
+### 2a. Hero (Required)
 
 The first thing anyone sees. One headline, one paragraph.
 
-**Headline** (~8–14 words; say what you do, not what you believe in)
+**Headline** (8 to 14 words; say what you do, not what you believe in)
 
 >
 
-**Supporting paragraph** (~30–45 words)
+**Supporting paragraph** (about 30 to 45 words)
 
 >
 
@@ -57,10 +60,10 @@ The first thing anyone sees. One headline, one paragraph.
 
 >
 
-### 2b. The numbers strip — **Required decision**
+### 2b. The numbers strip (Required decision)
 
 Four figures sit under the hero. **These must be real.** If you don't have them,
-write `DELETE` and I'll remove the block — that is genuinely better than shipping
+write `DELETE` and I'll remove the block. That is genuinely better than shipping
 approximate numbers on a credibility site.
 
 | Number | Label |
@@ -70,9 +73,9 @@ approximate numbers on a credibility site.
 | | Platforms delivered |
 | | Years in education |
 
-### 2c. What we do — **Required**
+### 2c. What we do (Required)
 
-One short paragraph for each practice (~25–35 words each). These are teasers;
+One short paragraph for each practice (about 25 to 35 words each). These are teasers;
 the full detail lives on the pillar pages.
 
 **Technology Solutions**
@@ -87,7 +90,7 @@ the full detail lives on the pillar pages.
 
 >
 
-### 2d. Our clients — **Required**
+### 2d. Our clients (Required)
 
 List every institution whose logo you have written permission to display, exactly
 as their name should appear. Put the logo files in `assets/img/clients/`.
@@ -104,8 +107,8 @@ as their name should appear. Put the logo files in `assets/img/clients/`.
 
 ### 2e. Why Rely Service
 
-Four differentiators. Each needs a short title and ~20–30 words. Make these
-specific to you — "quality service" and "customer focus" say nothing.
+Four differentiators. Each needs a short title and about 20 to 30 words. Make these
+specific to you. "Quality service" and "customer focus" say nothing.
 
 | Title | Explanation |
 | --- | --- |
@@ -116,11 +119,11 @@ specific to you — "quality service" and "customer focus" say nothing.
 
 ### 2f. Closing call to action
 
-**Heading** (~6–10 words)
+**Heading** (6 to 10 words)
 
 >
 
-**Paragraph** (~20–30 words)
+**Paragraph** (about 20 to 30 words)
 
 >
 
@@ -132,28 +135,28 @@ specific to you — "quality service" and "customer focus" say nothing.
 
 >
 
-**Page introduction** (~35–50 words)
+**Page introduction** (about 35 to 50 words)
 
 >
 
 Then for each of the four sections below:
 
-### 3a. Digital Platforms
+### 3a. Educational ERP
 - **One-line summary:**
 - **Description** (2 short paragraphs):
-- **Bulleted list of what's included** (4–6 items):
+- **Bulleted list of what's included** (4 to 6 items):
 
-### 3b. Campus & Academic Systems
+### 3b. IT & Digital Transformation
 - **One-line summary:**
 - **Description:**
 - **What's included:**
 
-### 3c. AI & Automation
+### 3c. Accreditation & Compliance
 - **One-line summary:**
 - **Description:**
 - **What's included:**
 
-### 3d. Custom Technology
+### 3d. Digital Growth
 - **One-line summary:**
 - **Description:**
 - **What's included:**
@@ -192,8 +195,9 @@ Then for each of the four sections below:
 
 ### 4e. How the programme runs
 
-Four stages (currently: Assess, Plan, Deliver, Report). Change the names if yours
-differ, and give each ~15–25 words.
+Four steps (currently: Master communication, Aptitude preparation, Technical
+training, Interview preparation). Change the names if yours differ, and give each
+about 15 to 25 words.
 
 | Stage | Description |
 | --- | --- |
@@ -214,25 +218,25 @@ differ, and give each ~15–25 words.
 
 >
 
-### 5a. Build
+### 5a. Setting Up the Centre
 - **One-line summary:**
 - **Description:**
-- **What you set up:**
+- **What this covers:**
 
-### 5b. Launch
+### 5b. Legal & Governance
 - **One-line summary:**
 - **Description:**
-- **What you set up:**
+- **What this covers:**
 
-### 5c. Connect
+### 5c. Funding & Finance
 - **One-line summary:**
 - **Description:**
-- **What you set up:**
+- **What this covers:**
 
-### 5d. Grow
+### 5d. Mentors & Operations
 - **One-line summary:**
 - **Description:**
-- **What you set up:**
+- **What this covers:**
 
 ---
 
@@ -242,18 +246,18 @@ differ, and give each ~15–25 words.
 
 >
 
-**Page introduction** (~35–50 words)
+**Page introduction** (about 35 to 50 words)
 
 >
 
-**Your story** (2–4 paragraphs)
+**Your story** (2 to 4 paragraphs)
 
 Specifics beat adjectives here. When did you start, what problem did you keep
 seeing on campuses, what did you decide to do about it?
 
 >
 
-**How you work** — six principles, each a short title plus ~20–25 words.
+**How you work**: six principles, each a short title plus about 20 to 25 words.
 
 | Principle | Explanation |
 | --- | --- |
@@ -273,7 +277,7 @@ Institutions vetting a new vendor look for named people. For each person:
 | | | | |
 | | | | |
 
-Photos: square, at least 400×400, into `assets/img/team/`.
+Photos: square, at least 400 by 400, into `assets/img/team/`.
 
 ---
 
@@ -283,7 +287,7 @@ Photos: square, at least 400×400, into `assets/img/team/`.
 
 >
 
-**Intro line** (~25 words)
+**Intro line** (about 25 words)
 
 >
 
@@ -291,7 +295,7 @@ Photos: square, at least 400×400, into `assets/img/team/`.
 
 >
 
-**Google Maps link** — open Google Maps, find your office, Share → Embed a map,
+**Google Maps link**: open Google Maps, find your office, Share, then Embed a map,
 and paste the whole `<iframe>` code here:
 
 >
@@ -300,11 +304,11 @@ and paste the whole `<iframe>` code here:
 
 ## 8. Things I still need from you
 
-- [ ] **Logo** — done ✅ (`assets/img/logo/`)
-- [ ] **Client logos** — PNG or SVG, transparent background, into `assets/img/clients/`
+- [ ] **Logo**: done (`assets/img/logo/`)
+- [ ] **Client logos**: PNG or SVG, transparent background, into `assets/img/clients/`
 - [ ] **Written permission** for each client logo
 - [ ] **Team photos**, if you want a leadership section
-- [ ] **A photo or two of your team working on campus** — optional, but real
+- [ ] **A photo or two of your team working on campus**. Optional, but real
       photography lifts a site like this more than any amount of styling
 - [ ] **Capability statement PDF**, if you have one for sales emails
 - [ ] **Domain name** purchased

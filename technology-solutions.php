@@ -10,7 +10,7 @@ $sections = [
     [
         'id'    => 'educational-erp',
         'title' => 'Educational ERP',
-        'lead'  => 'One system for admissions, records, examinations and placements — instead of six that don\'t talk to each other.',
+        'lead'  => 'One system for admissions, records, examinations and placements, instead of six that don\'t talk to each other.',
         'body'  => [
             'Most institutions run admissions in one tool, attendance in another and examinations on a spreadsheet, then re-key the same student data between them. We implement and integrate the systems a campus runs on day to day so the data is entered once and used everywhere.',
             'The placement cell suite matters particularly here: it is where student records, recruiter relationships and outcome reporting meet, and it is usually the weakest link in an otherwise functional stack.',
@@ -32,7 +32,7 @@ $sections = [
         'title' => 'IT & Digital Transformation',
         'lead'  => 'The student-facing layer: portals, apps and the automation behind them.',
         'body'  => [
-            'This is the work students, parents and recruiters actually see — admission portals that don\'t lose applicants halfway through, apps that work on the phone a student really owns, and learning platforms built around how your faculty teach rather than how a vendor assumed they would.',
+            'This is the work students, parents and recruiters actually see: admission portals that don\'t lose applicants halfway through, apps that work on the phone a student really owns, and learning platforms built around how your faculty teach rather than how a vendor assumed they would.',
             'Where AI genuinely removes load, we apply it: answering the same admissions questions a thousand times, drafting reports from data that already exists, guiding students through career options. Where a simpler automation would do the job better, we say so.',
         ],
         'panel' => [
@@ -53,7 +53,7 @@ $sections = [
         'lead'  => 'Evidence assembled continuously through the year, not reconstructed the week before a visit.',
         'body'  => [
             'NAAC, NBA, NIRF and AICTE submissions fail on documentation far more often than on substance. The data almost always exists somewhere on campus; what is missing is a system that captures it as it happens and formats it the way the framework expects.',
-            'We build that layer over your existing systems, so a submission becomes an export rather than a scramble — and so internal audits surface gaps while there is still time to close them.',
+            'We build that layer over your existing systems, so a submission becomes an export rather than a scramble, and so internal audits surface gaps while there is still time to close them.',
         ],
         'panel' => [
             'heading' => 'What this covers',
@@ -73,7 +73,7 @@ $sections = [
         'lead'  => 'Filling seats: search, social and admission campaigns run as a measured funnel.',
         'body'  => [
             'Admissions are competitive and increasingly decided online, well before a prospectus is ever opened. We run search, social and paid campaigns for institutions with the funnel instrumented end to end, so you can see which channels produce enquiries that actually convert to enrolments.',
-            'The same infrastructure keeps alumni reachable — the group most institutions under-use, and the one most likely to send the next cohort of students and recruiters.',
+            'The same infrastructure keeps alumni reachable. They are the group most institutions under-use, and the one most likely to send the next cohort of students and recruiters.',
         ],
         'panel' => [
             'heading' => 'What this covers',
@@ -97,7 +97,7 @@ $sections = [
     <h1>Technology built for how a campus actually runs</h1>
     <p class="lead">
       Educational ERP, the student-facing digital layer, accreditation evidence and
-      admission growth — delivered by a team that works inside educational
+      admission growth, delivered by a team that works inside educational
       institutions all year, not just at procurement time.
     </p>
   </div>
@@ -114,7 +114,7 @@ $sections = [
     <div class="grid grid-3">
       <div>
         <h3>We start with the people using it</h3>
-        <p>Discovery happens on campus, with the staff who run the process today —
+        <p>Discovery happens on campus, with the staff who run the process today,
            not from a requirements document written elsewhere.</p>
       </div>
       <div>

@@ -1,4 +1,4 @@
-# Rely Service — Apache config for shared cPanel hosting.
+# Rely Service Apache config for shared cPanel hosting.
 # Safe to drop in as-is. If a rule causes a 500 error on your host, comment it
 # out and reload; shared hosts occasionally disable individual modules.
 
@@ -56,7 +56,7 @@ RedirectMatch 404 ^/includes(/.*)?$
 </IfModule>
 
 # --- Browser caching --------------------------------------------------------
-# CSS and JS are cache-busted by the ?v=1 query string in header.php —
+# CSS and JS are cache-busted by the ?v= query string in header.php.
 # bump that number whenever you edit style.css or main.js.
 <IfModule mod_expires.c>
   ExpiresActive On

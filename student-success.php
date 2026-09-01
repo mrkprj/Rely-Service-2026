@@ -10,7 +10,7 @@ $sections = [
     [
         'id'    => 'skills',
         'title' => 'Skills',
-        'lead'  => 'Communication and aptitude first — the two things students are screened on before anyone reads their marksheet.',
+        'lead'  => 'Communication and aptitude first: the two things students are screened on before anyone reads their marksheet.',
         'body'  => [
             'Soft skills are usually taught on campus at a level that is fine for college and insufficient for a workplace. We start by rebuilding them properly: spoken and written communication, email etiquette, listening, and the confidence to hold a room.',
             'Quantitative aptitude runs alongside it, because most large recruiters gate the entire process behind an aptitude test. Students practise on the kinds of assessments they will actually sit.',
@@ -40,7 +40,7 @@ $sections = [
             'items'   => [
                 'CV writing and LinkedIn profile creation',
                 'Group discussion practice and feedback',
-                'Mock interviews — HR, technical and panel',
+                'Mock interviews: HR, technical and panel',
                 'Interview technique and recruitment counselling',
                 'Negotiation and professional etiquette',
             ],
@@ -51,14 +51,14 @@ $sections = [
         'title' => 'Industry Readiness',
         'lead'  => 'Stream-specific technical training, taught by people who work in the field.',
         'body'  => [
-            'Syllabi update slowly; industry does not. This module closes the distance with hands-on training in the tools and technologies each stream is actually hiring for — taught by practising professionals rather than from a textbook.',
+            'Syllabi update slowly; industry does not. This module closes the distance with hands-on training in the tools and technologies each stream is actually hiring for, taught by practising professionals rather than from a textbook.',
             'The catalogue is deep and stream-specific: Data Science, IoT, Robotics, AI and ML, cloud, cyber security and full-stack for engineering and polytechnic; AutoCAD, SolidWorks, CATIA and CNC for mechanical; VLSI, PLC/SCADA, embedded systems and PCB design for electrical; STAAD Pro, Revit and Primavera for civil; digital marketing, business analytics and ERP for management; clinical research, GMP and pharmaceutical data for pharma; SEO, design and digital content for mass media.',
         ],
         'panel' => [
             'heading' => 'Streams we train',
             'items'   => [
-                'Engineering and Polytechnic — IT, mechanical, electrical, civil',
-                'Management — marketing, analytics, operations',
+                'Engineering and Polytechnic: IT, mechanical, electrical, civil',
+                'Management: marketing, analytics, operations',
                 'Microbiology and Pharmacy',
                 'Mass Media',
                 'Nursing and Hospitality',
@@ -72,7 +72,7 @@ $sections = [
         'lead'  => 'Internships, on-the-job training and mentors who have done the job.',
         'body'  => [
             'Training only goes so far without exposure. Students are placed into internships in their own domain, running from four weeks to six months depending on the course, with partners spanning startups, MSMEs and multinationals.',
-            'On-the-job training bridges what remains between theory and practice, and mentorship comes from professionals working in industry — including at the global technology firms most students only read about.',
+            'On-the-job training bridges what remains between theory and practice, and mentorship comes from professionals working in industry, including at the global technology firms most students only read about.',
         ],
         'panel' => [
             'heading' => 'What students get',
@@ -158,11 +158,11 @@ $sections = [
     <div class="panel">
       <h4>Programme shape</h4>
       <ul class="feature-list">
-        <li><strong>Training</strong> — typically weekends, 2 to 4 hours per session</li>
-        <li><strong>Duration</strong> — 5 to 18 weeks per skill set</li>
-        <li><strong>Internships</strong> — 4 to 24 weeks, full-time, in domain</li>
-        <li><strong>Location</strong> — delivered at your campus</li>
-        <li><strong>Faculty</strong> — practising industry professionals</li>
+        <li><strong>Training</strong>: typically weekends, 2 to 4 hours per session</li>
+        <li><strong>Duration</strong>: 5 to 18 weeks per skill set</li>
+        <li><strong>Internships</strong>: 4 to 24 weeks, full-time, in domain</li>
+        <li><strong>Location</strong>: delivered at your campus</li>
+        <li><strong>Faculty</strong>: practising industry professionals</li>
       </ul>
     </div>
   </div>

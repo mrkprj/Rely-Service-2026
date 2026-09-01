@@ -6,7 +6,7 @@
  * where 'logo' is a filename in /assets/img/clients/, or '' to fall back to
  * the name rendered as text.
  *
- * Add or remove entries freely — the layout adapts on its own:
+ * Add or remove entries freely. The layout adapts on its own:
  *
  *   under MARQUEE_MIN entries  a centred static row (too few to loop convincingly)
  *   MARQUEE_MIN or more        a continuous marquee
@@ -73,7 +73,7 @@ if ($count < MARQUEE_MIN): ?>
       <ul class="marquee-set">
         <?php foreach ($set as $client) client_tile($client); ?>
       </ul>
-      <?php /* Visual duplicate that makes the loop seamless — hidden from
+      <?php /* Visual duplicate that makes the loop seamless, hidden from
                assistive tech so the client list isn't announced twice. */ ?>
       <ul class="marquee-set" aria-hidden="true">
         <?php foreach ($set as $client) client_tile($client); ?>

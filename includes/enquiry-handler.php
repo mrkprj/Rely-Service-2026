@@ -7,9 +7,9 @@
  * so a browser refresh doesn't resend the enquiry).
  *
  * Anti-spam, in order of usefulness:
- *   1. Honeypot field  — a field people never see and bots usually fill.
- *   2. Time trap       — forms submitted in under 3 seconds are bots.
- *   3. CSRF token      — also stops naive cross-site posting.
+ *   1. Honeypot field  : a field people never see and bots usually fill.
+ *   2. Time trap       : forms submitted in under 3 seconds are bots.
+ *   3. CSRF token      : also stops naive cross-site posting.
  * No CAPTCHA. Add reCAPTCHA/Turnstile only if spam actually gets through.
  */
 require_once __DIR__ . '/config.php';
@@ -112,7 +112,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
                  . "Name:        {$old['name']}\n"
                  . "Institution: {$old['institution']}\n"
                  . "Email:       {$old['email']}\n"
-                 . "Phone:       " . ($old['phone'] !== '' ? $old['phone'] : '—') . "\n"
+                 . "Phone:       " . ($old['phone'] !== '' ? $old['phone'] : 'Not provided') . "\n"
                  . "Interest:    {$interest}\n\n"
                  . "Message:\n{$old['message']}\n\n"
                  . str_repeat('-', 52) . "\n"
@@ -130,7 +130,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
         $ok = @mail(ENQUIRY_TO, $subject, $body, implode("\r\n", $headers), '-f' . ENQUIRY_FROM);
 
-        // Always keep a local copy — mail() fails silently more often than you'd like.
+        // Always keep a local copy. mail() fails silently more often than you'd like.
         enquiry_log($old, $interest, $ok);
 
         if ($ok) {

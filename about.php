@@ -12,7 +12,7 @@ require __DIR__ . '/includes/header.php';
     <h1>We work inside educational institutions, all year</h1>
     <p class="lead">
       Rely Service partners with colleges, universities and institutes to bring
-      technology, student development and entrepreneurship together under one team —
+      technology, student development and entrepreneurship together under one team,
       because on a campus those three things are never really separate.
     </p>
   </div>
@@ -36,8 +36,8 @@ require __DIR__ . '/includes/header.php';
       </p>
       <p>
         The gap wasn't ability. It was that industry moves faster than a curriculum
-        can be revised, and that the skills placement actually turns on — communication,
-        aptitude, current technical tools — sat outside what anyone was formally
+        can be revised, and that the skills placement actually turns on (communication,
+        aptitude, current technical tools) sat outside what anyone was formally
         responsible for teaching.
       </p>
       <p>
@@ -94,7 +94,7 @@ require __DIR__ . '/includes/header.php';
 </section>
 
 <!-- TODO: Leadership section. The T&P deck has bios for Kunal, Harnish, Rushit
-     and Mark — institutions vetting a new vendor look for named people, so this
+     and Mark. Institutions vetting a new vendor look for named people, so this
      is worth adding. Send photos (square, 400px+) into assets/img/team/ and
      confirm each person's current role and how they want to be described.
 

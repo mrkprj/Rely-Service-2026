@@ -17,7 +17,7 @@ require __DIR__ . '/includes/header.php';
    --------------------------------------------------------------------------- */
 $clients = [
     ['name' => "SNDT Women's University",                'logo' => 'sndt-womens-university.png',      'w' => 53,  'h' => 38],
-    ['name' => 'WISE — SNDTWU Incubation Centre',        'logo' => 'wise-sndtwu-incubation.png',      'w' => 46,  'h' => 46],
+    ['name' => 'WISE, SNDTWU Incubation Centre',        'logo' => 'wise-sndtwu-incubation.png',      'w' => 46,  'h' => 46],
     ['name' => 'The Kandivali Education Society',        'logo' => 'kandivali-education-society.png', 'w' => 61,  'h' => 30],
     ['name' => "KES' Shri J. H. Patel Law College",      'logo' => 'jh-patel-law-college.png',        'w' => 52,  'h' => 46],
     ['name' => 'Thakur Trusts',                          'logo' => 'thakur-trusts.png',               'w' => 46,  'h' => 46],
@@ -56,7 +56,7 @@ $clients = [
     </div>
 
     <?php /* The impact-numbers block that sat here has been removed until the
-             figures are verified — the source documents disagreed with each
+             figures are verified. The source documents disagreed with each
              other. See the note in CONTENT.md; the .stat styles remain in the
              stylesheet, so restoring it is a paste-back. */ ?>
     <div class="hero-panel">
@@ -65,10 +65,10 @@ $clients = [
       </div>
       <h2 class="hero-panel-title">What we're asked for most</h2>
       <ul class="feature-list">
-        <li><strong>Campus to Corporate</strong> — soft skills, aptitude, technical training and placement support</li>
-        <li><strong>Educational ERP</strong> — admissions, student records, examinations, placement cell</li>
-        <li><strong>Accreditation &amp; Compliance</strong> — NAAC, NBA, NIRF and AICTE readiness</li>
-        <li><strong>Incubation</strong> — establishing and running institutional incubation centres</li>
+        <li><strong>Campus to Corporate</strong>: soft skills, aptitude, technical training and placement support</li>
+        <li><strong>Educational ERP</strong>: admissions, student records, examinations, placement cell</li>
+        <li><strong>Accreditation &amp; Compliance</strong>: NAAC, NBA, NIRF and AICTE readiness</li>
+        <li><strong>Incubation</strong>: establishing and running institutional incubation centres</li>
       </ul>
     </div>
   </div>
@@ -107,7 +107,7 @@ $clients = [
         <span class="card-icon" aria-hidden="true">03</span>
         <h3>Incubation &amp; Entrepreneurship</h3>
         <p>We help institutions establish their own incubation centres, and support
-           every part of running one — legal, financial, funding and mentors.</p>
+           every part of running one: legal, financial, funding and mentors.</p>
         <a class="link-arrow" href="/incubation">Explore incubation</a>
       </article>
     </div>
@@ -133,7 +133,7 @@ $clients = [
       <span class="eyebrow">Technology Solutions</span>
       <h2>Systems that hold up on the busiest week of the academic year</h2>
       <p class="lead">
-        Admissions, attendance, examinations, placements, accreditation reporting —
+        Admissions, attendance, examinations, placements, accreditation reporting:
         the work an institution runs on. We build and integrate the platforms behind it.
       </p>
       <div class="btn-row">
@@ -143,10 +143,10 @@ $clients = [
     <div class="panel">
       <h4>Where we typically start</h4>
       <ul class="feature-list">
-        <li><strong>Educational ERP</strong> — admissions, records, examinations, placement cell</li>
-        <li><strong>IT &amp; Digital Transformation</strong> — portals, apps, LMS, AI assistants</li>
-        <li><strong>Accreditation &amp; Compliance</strong> — NAAC, NBA, NIRF, AICTE readiness</li>
-        <li><strong>Digital Growth</strong> — search, social and admission campaigns</li>
+        <li><strong>Educational ERP</strong>: admissions, records, examinations, placement cell</li>
+        <li><strong>IT &amp; Digital Transformation</strong>: portals, apps, LMS, AI assistants</li>
+        <li><strong>Accreditation &amp; Compliance</strong>: NAAC, NBA, NIRF, AICTE readiness</li>
+        <li><strong>Digital Growth</strong>: search, social and admission campaigns</li>
       </ul>
     </div>
   </div>
@@ -158,7 +158,7 @@ $clients = [
     <div class="panel" style="background:#fff">
       <h4>The campus-to-corporate arc</h4>
       <ol class="numbered">
-        <li><strong>Skills</strong><br>Communication and quantitative aptitude — what students are screened on first.</li>
+        <li><strong>Skills</strong><br>Communication and quantitative aptitude: what students are screened on first.</li>
         <li><strong>Employability</strong><br>CVs, group discussions, mock interviews and recruitment counselling.</li>
         <li><strong>Industry Readiness</strong><br>Stream-specific technical training from practising professionals.</li>
         <li><strong>Career Exposure</strong><br>Domain internships from 4 to 24 weeks, and end-to-end placement support.</li>
@@ -168,7 +168,7 @@ $clients = [
       <span class="eyebrow">Student Success</span>
       <h2>Students who arrive at placement week already prepared</h2>
       <p class="lead">
-        A structured programme delivered on campus across the academic year — not a
+        A structured programme delivered on campus across the academic year, not a
         two-day workshop before the drives begin.
       </p>
       <div class="btn-row">
@@ -186,7 +186,7 @@ $clients = [
       <h2>Your incubation centre, built properly and kept running</h2>
       <p class="lead">
         We set up incubation centres for institutions and support every aspect of
-        their working — legal, financial, funding, mentors and operations. You own
+        their working: legal, financial, funding, mentors and operations. You own
         the centre; we bring the expertise to run it well.
       </p>
       <div class="btn-row">
@@ -196,10 +196,10 @@ $clients = [
     <div class="panel">
       <h4>How we support your incubation centre</h4>
       <ul class="feature-list">
-        <li><strong>Setting Up the Centre</strong> — structure, policy, intake process, infrastructure</li>
-        <li><strong>Legal &amp; Governance</strong> — IP policy, agreements, compliance, oversight</li>
-        <li><strong>Funding &amp; Finance</strong> — grants, seed routes, budgeting, investor readiness</li>
-        <li><strong>Mentors &amp; Operations</strong> — mentor network, programmes, day-to-day running</li>
+        <li><strong>Setting Up the Centre</strong>: structure, policy, intake process, infrastructure</li>
+        <li><strong>Legal &amp; Governance</strong>: IP policy, agreements, compliance, oversight</li>
+        <li><strong>Funding &amp; Finance</strong>: grants, seed routes, budgeting, investor readiness</li>
+        <li><strong>Mentors &amp; Operations</strong>: mentor network, programmes, day-to-day running</li>
       </ul>
     </div>
   </div>

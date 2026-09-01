@@ -1,6 +1,6 @@
 <?php
 /**
- * Local preview router — for PHP's built-in server only.
+ * Local preview router, for PHP's built-in server only.
  * It reproduces the clean-URL rewriting that .htaccess does on the real host.
  *
  *   php -S localhost:8000 router.php
@@ -17,7 +17,7 @@ if (preg_match('#^/(includes|storage)(/|$)#', $path)) {
     return true;
 }
 
-// Real file (CSS, JS, images) — let the server handle it.
+// Real file (CSS, JS, images). Let the server handle it.
 if ($path !== '/' && is_file($file)) {
     return false;
 }

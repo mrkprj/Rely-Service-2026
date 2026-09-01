@@ -1,4 +1,4 @@
-/* Rely Service — the only JavaScript on the site.
+/* Rely Service, the only JavaScript on the site.
    Mobile menu, header state, scroll reveals, jump-nav highlighting.
    Everything here is progressive enhancement: with JS disabled the site is
    fully readable and navigable, and nothing is hidden. */
@@ -22,7 +22,7 @@
       setMenu(toggle.getAttribute('aria-expanded') !== 'true');
     });
 
-    // Submenu accordions (mobile only — the button is display:none on desktop).
+    // Submenu accordions (mobile only; the button is display:none on desktop).
     nav.querySelectorAll('.submenu-toggle').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var open    = btn.getAttribute('aria-expanded') === 'true';
@@ -60,7 +60,7 @@
   }
 
   /* --- Reveal on scroll --------------------------------------------------- */
-  /* Note: logo tiles are deliberately excluded — they live inside the marquee
+  /* Note: logo tiles are deliberately excluded. They live inside the marquee
      track, and a reveal transform on them would fight the slide animation. */
   var revealables = document.querySelectorAll(
     '.section-head, .card, .stat, .panel, .pillar, .hero-copy, .footer-col'

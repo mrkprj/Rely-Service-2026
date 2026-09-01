@@ -3,9 +3,9 @@
  * Shared page head + site header.
  *
  * Set these before including this file:
- *   $page_title       — string, without the site name suffix
- *   $page_description — string, ~155 characters, for search results
- *   $active           — nav key to highlight: technology|student|incubation|about|contact
+ *   $page_title       : string, without the site name suffix
+ *   $page_description : string, ~155 characters, for search results
+ *   $active           : nav key to highlight technology|student|incubation|about|contact
  */
 require_once __DIR__ . '/config.php';
 
@@ -13,7 +13,7 @@ $page_title       = $page_title       ?? SITE_NAME;
 $page_description = $page_description ?? SITE_TAGLINE;
 $active           = $active           ?? '';
 $full_title       = ($page_title === SITE_NAME)
-    ? SITE_NAME . ' — ' . SITE_TAGLINE
+    ? SITE_NAME . ': ' . SITE_TAGLINE
     : $page_title . ' | ' . SITE_NAME;
 $canonical        = SITE_URL . strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
 ?>
@@ -42,7 +42,7 @@ $canonical        = SITE_URL . strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="/assets/css/style.css?v=4">
+<link rel="stylesheet" href="/assets/css/style.css?v=5">
 
 <script type="application/ld+json">
 {
@@ -70,7 +70,7 @@ $canonical        = SITE_URL . strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
 
 <header class="site-header" id="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/" aria-label="<?= e(SITE_NAME) ?> — home">
+    <a class="brand" href="/" aria-label="<?= e(SITE_NAME) ?> home">
       <img class="brand-logo" src="/assets/img/logo/logo.png"
            alt="<?= e(SITE_NAME) ?>" width="2792" height="483">
     </a>

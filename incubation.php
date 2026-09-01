@@ -1,12 +1,12 @@
 <?php
 $page_title       = 'Incubation & Entrepreneurship';
-$page_description = 'Rely Service helps educational institutions establish and run their own incubation centres — setup, legal and governance, funding, mentor networks and day-to-day operations.';
+$page_description = 'Rely Service helps educational institutions establish and run their own incubation centres: setup, legal and governance, funding, mentor networks and day-to-day operations.';
 $active           = 'incubation';
 require __DIR__ . '/includes/header.php';
 
 /* The client here is the INSTITUTION, not the student venture. Rely Service
    sets up and supports the running of incubation centres that the institution
-   owns outright — no co-ownership, no equity. Keep that framing throughout.
+   owns outright: no co-ownership, no equity. Keep that framing throughout.
 
    The entrepreneurship curriculum under 'mentors-operations' is real, taken
    from the Management stream of the T&P deck. Nothing else is invented as a
@@ -18,7 +18,7 @@ $sections = [
         'lead'  => 'From a decision at management level to a centre that is open, staffed and taking its first cohort.',
         'body'  => [
             'Establishing an incubation centre involves a great deal more than allocating a room and announcing it. It needs a defined purpose, an intake process, a support model that ventures are genuinely entitled to, and someone accountable for outcomes. Institutions rarely have that expertise in-house, and it is not the kind of thing that is easily learnt on a first attempt.',
-            'We bring it. We work with your management to design the centre around what your institution can realistically sustain — its streams, its student profile, its regional industry — and then set it up: structure, policy, process, infrastructure and the recognitions worth pursuing.',
+            'We bring it. We work with your management to design the centre around what your institution can realistically sustain (its streams, its student profile, its regional industry) and then set it up: structure, policy, process, infrastructure and the recognitions worth pursuing.',
         ],
         'panel' => [
             'heading' => 'What setup covers',
@@ -35,10 +35,10 @@ $sections = [
     [
         'id'    => 'legal-governance',
         'title' => 'Legal & Governance',
-        'lead'  => 'The framework that decides who owns what — settled properly at the start, not argued about later.',
+        'lead'  => 'The framework that decides who owns what, settled properly at the start, not argued about later.',
         'body'  => [
             'The questions that damage campus incubation are almost always legal ones left unanswered: who owns the intellectual property a student developed using institutional resources, what the institution is entitled to if a venture succeeds, what happens when a founder graduates or leaves, and what the centre is liable for.',
-            'We help you put that framework in place — the entity structure, the agreements, the IP and equity policy, and the governance that keeps the centre accountable to your management committee. Institutions that settle this early avoid the disputes that quietly close incubation centres down.',
+            'We help you put that framework in place: the entity structure, the agreements, the IP and equity policy, and the governance that keeps the centre accountable to your management committee. Institutions that settle this early avoid the disputes that quietly close incubation centres down.',
         ],
         'panel' => [
             'heading' => 'What this covers',
@@ -55,10 +55,10 @@ $sections = [
     [
         'id'    => 'funding-finance',
         'title' => 'Funding & Finance',
-        'lead'  => 'Money into the centre, and money into the ventures it backs — two different problems.',
+        'lead'  => 'Money into the centre, and money into the ventures it backs: two different problems.',
         'body'  => [
             'An incubation centre has its own financial life: a budget, sustainability targets, and often grant or scheme funding it is eligible for and unaware of. Separately, the ventures inside it need access to seed capital, and student founders are rarely equipped to raise it.',
-            'We work on both. For the centre, that means financial structure, budgeting and identifying the government schemes and institutional funding routes it can access. For the ventures, it means readiness — knowing what an investor will ask, and being able to answer.',
+            'We work on both. For the centre, that means financial structure, budgeting and identifying the government schemes and institutional funding routes it can access. For the ventures, it means readiness: knowing what an investor will ask, and being able to answer.',
         ],
         'panel' => [
             'heading' => 'What this covers',
@@ -77,14 +77,14 @@ $sections = [
         'title' => 'Mentors & Operations',
         'lead'  => 'Everything involved in the centre actually running, week to week, after the inauguration.',
         'body'  => [
-            'A great many campus incubation cells are opened with enthusiasm and are quiet within two years — not because the idea was wrong, but because nobody owned the running of it. Operations are where incubation succeeds or fails.',
+            'A great many campus incubation cells are opened with enthusiasm and are quiet within two years, not because the idea was wrong, but because nobody owned the running of it. Operations are where incubation succeeds or fails.',
             'We build and manage the mentor network, run the entrepreneurship programmes that feed the pipeline, structure the cohort calendar, connect ventures to our industry network, and keep the reporting your management committee needs. Where a centre already exists and has stalled, this is usually the part that needs rebuilding.',
         ],
         'panel' => [
             'heading' => 'What this covers',
             'items'   => [
                 'Mentor network recruitment and management',
-                'Entrepreneurship training — validation, business models, MVP, pricing, IP',
+                'Entrepreneurship training: validation, business models, MVP, pricing, IP',
                 'Cohort programme design and calendar',
                 'Ongoing mentoring for incubated ventures',
                 'Industry and corporate introductions',
@@ -100,7 +100,7 @@ $sections = [
   <div class="container">
     <p class="breadcrumb"><a href="/">Home</a> <span aria-hidden="true">/</span> Incubation &amp; Entrepreneurship</p>
     <span class="eyebrow">Incubation &amp; Entrepreneurship</span>
-    <h1>We help you build your incubation centre — and keep it running</h1>
+    <h1>We help you build your incubation centre, and keep it running</h1>
     <p class="lead">
       Rely Service sets up incubation centres for educational institutions and supports
       every part of their working: legal, financial, funding, mentors and day-to-day
@@ -125,7 +125,7 @@ $sections = [
         That matters more than it might sound. An incubation centre is part of an
         institution's identity and its accreditation record, and its relationships
         with founders depend on there being no ambiguity about who is entitled to
-        what. We are engaged to build the capability and support its operation — the
+        what. We are engaged to build the capability and support its operation. The
         centre belongs to you throughout.
       </p>
       <div class="btn-row">
@@ -135,10 +135,10 @@ $sections = [
     <div class="panel" style="background:#fff">
       <h4>Where institutions bring us in</h4>
       <ul class="feature-list">
-        <li><strong>From scratch</strong> — no centre yet, starting with the decision to build one</li>
-        <li><strong>Newly established</strong> — a centre exists on paper and needs to become operational</li>
-        <li><strong>Stalled</strong> — inaugurated, then quiet; usually an operations and mentor problem</li>
-        <li><strong>Running, needs depth</strong> — an active centre wanting stronger legal, funding or industry footing</li>
+        <li><strong>From scratch</strong>: no centre yet, starting with the decision to build one</li>
+        <li><strong>Newly established</strong>: a centre exists on paper and needs to become operational</li>
+        <li><strong>Stalled</strong>: inaugurated, then quiet; usually an operations and mentor problem</li>
+        <li><strong>Running, needs depth</strong>: an active centre wanting stronger legal, funding or industry footing</li>
       </ul>
       <!-- TODO: CONFIRM wording, and that SNDTWU is content to be named here.
            Described as a delivery partner supporting the centre, not running it. -->
@@ -160,7 +160,7 @@ $sections = [
       <div>
         <h3>Accreditation and rankings</h3>
         <p>Documented entrepreneurship activity and outcomes that stand up in NAAC,
-           NBA and NIRF submissions — where innovation and entrepreneurship carry
+           NBA and NIRF submissions, where innovation and entrepreneurship carry
            explicit weight.</p>
       </div>
       <div>

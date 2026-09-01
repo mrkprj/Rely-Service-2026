@@ -1,5 +1,5 @@
 <?php
-// Must come first — it may redirect, so no output before this.
+// Must come first. It may redirect, so no output before this.
 require __DIR__ . '/includes/enquiry-handler.php';
 
 $page_title       = 'Contact';
@@ -26,7 +26,7 @@ require __DIR__ . '/includes/header.php';
     <div>
       <?php if ($sent): ?>
         <div class="alert alert-success" role="status">
-          <strong>Thank you — your enquiry has reached us.</strong>
+          <strong>Thank you. Your enquiry has reached us.</strong>
           <p>A member of the team will get back to you within two working days. If it's
              urgent, call <a href="tel:<?= e(company_phone_href()) ?>"><?= e(COMPANY_PHONE) ?></a>.</p>
         </div>
@@ -156,7 +156,7 @@ require __DIR__ . '/includes/header.php';
           <a href="tel:<?= e(company_phone_href()) ?>"><?= e(COMPANY_PHONE) ?></a><br>
           <a href="mailto:<?= e(COMPANY_EMAIL) ?>"><?= e(COMPANY_EMAIL) ?></a>
         </p>
-        <p class="hint">Monday to Friday, 10:00 – 18:30 IST</p>
+        <p class="hint">Monday to Friday, 10:00 to 18:30 IST</p>
       </div>
 
       <div class="panel">

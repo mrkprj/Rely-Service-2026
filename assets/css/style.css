@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Rely Service — site stylesheet
+   Rely Service site stylesheet
    Hand-written, no framework, no build step.
 
    Palette is sampled directly from the logo:
@@ -23,7 +23,7 @@
 
 /* 1. Tokens ---------------------------------------------------------------- */
 :root {
-  /* Brand — sampled from the logo file. */
+  /* Brand, sampled from the logo file. */
   --brand-cyan:    #00a0e3;
   --brand-blue:    #1874bb;
   --brand-indigo:  #3a3d8a;
@@ -31,7 +31,7 @@
 
   --brand-gradient: linear-gradient(150deg, var(--brand-cyan) 0%, var(--brand-blue) 48%, var(--brand-indigo) 100%);
 
-  /* Neutrals — cool, light, plenty of air. */
+  /* Neutrals: cool, light, plenty of air. */
   --ink:         #17181c;
   --ink-2:       #3f4750;
   --muted:       #6b7683;
@@ -49,7 +49,7 @@
   --font-display: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Type scale — a little larger and airier than default. */
+  /* Type scale, a little larger and airier than default. */
   --step--1: clamp(0.82rem, 0.79rem + 0.14vw, 0.89rem);
   --step-0:  clamp(1.00rem, 0.97rem + 0.18vw, 1.09rem);
   --step-1:  clamp(1.16rem, 1.07rem + 0.42vw, 1.38rem);
@@ -68,7 +68,7 @@
   --radius-lg:  24px;
   --radius-xl:  32px;
 
-  /* Soft, low-contrast shadows — chic means restrained. */
+  /* Soft, low-contrast shadows. Chic means restrained. */
   --shadow-xs: 0 1px 2px rgba(23, 24, 28, .04);
   --shadow-sm: 0 2px 4px rgba(23, 24, 28, .04), 0 6px 16px rgba(23, 24, 28, .04);
   --shadow-md: 0 4px 10px rgba(23, 24, 28, .05), 0 18px 40px rgba(23, 24, 28, .07);
@@ -178,7 +178,7 @@ strong { color: var(--ink); font-weight: 600; }
 .section-head.center { margin-inline: auto; text-align: center; }
 .section-head.center p { margin-inline: auto; }
 
-/* Eyebrow — small pill with the brand gradient dot. */
+/* Eyebrow: small pill with the brand gradient dot. */
 .eyebrow {
   display: inline-flex; align-items: center; gap: .55rem;
   font-family: var(--font-display);
@@ -496,7 +496,7 @@ strong { color: var(--ink); font-weight: 600; }
 }
 .stat-label { font-size: var(--step--1); color: var(--muted); }
 
-/* Inner-page hero — light, with a hairline gradient rule at the bottom. */
+/* Inner-page hero: light, with a hairline gradient rule at the bottom. */
 .page-hero {
   position: relative;
   padding-block: clamp(3.5rem, 7vw, 6rem);
@@ -545,7 +545,7 @@ strong { color: var(--ink); font-weight: 600; }
 .section--ink .card p { color: rgba(255,255,255,.62); }
 .section--ink .card:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18); }
 
-/* Numbered index used on cards — gradient numeral, no box. */
+/* Numbered index used on cards: gradient numeral, no box. */
 .card-icon {
   display: block;
   font-family: var(--font-display);
@@ -577,7 +577,7 @@ strong { color: var(--ink); font-weight: 600; }
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 
-/* Waveform motif — echoes the logo. Decorative only. */
+/* Waveform motif, echoing the logo. Decorative only. */
 .wave {
   display: flex; align-items: flex-end; gap: 5px; height: 34px;
   margin-bottom: var(--space-md);
@@ -616,7 +616,7 @@ strong { color: var(--ink); font-weight: 600; }
 /* 8. Client logos ------------------------------------------------------------- */
 /* Two layouts share one tile: a static row for a handful of clients, and a
    continuous marquee once there are enough to loop convincingly. See
-   includes/client-marquee.php — the PHP picks which one to render. */
+   includes/client-marquee.php, where the PHP picks which one to render. */
 
 .logo-cell {
   display: grid; place-items: center;
@@ -705,7 +705,7 @@ strong { color: var(--ink); font-weight: 600; }
   opacity: 0;
   transition: opacity .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
 }
-/* Stays out of the way until it's wanted — but always reachable by keyboard. */
+/* Stays out of the way until it's wanted, but always reachable by keyboard. */
 .marquee:hover .marquee-pause,
 .marquee:focus-within .marquee-pause,
 .marquee-pause:focus-visible,

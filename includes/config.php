@@ -2,14 +2,14 @@
 /**
  * Site-wide configuration.
  * ---------------------------------------------------------------------------
- * EDIT THIS FILE FIRST. Everything below is placeholder data — replace the
+ * EDIT THIS FILE FIRST. Everything below is placeholder data. Replace the
  * values with Rely Service's real details and the whole site updates.
  */
 
 // --- Company details ------------------------------------------------------
 define('SITE_NAME',    'Rely Service');
 define('SITE_TAGLINE', 'Technology, talent and enterprise for education');
-// TODO: CONFIRM — the presentation uses relyservice.com, this was set up as .in.
+// TODO: CONFIRM. The presentation uses relyservice.com, this was set up as .in.
 define('SITE_URL',     'https://www.relyservice.com');  // real domain, no trailing slash
 
 define('COMPANY_ADDRESS_LINE1', '[Office address line 1]');

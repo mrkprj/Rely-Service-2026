@@ -5,7 +5,7 @@
     <div class="footer-grid">
 
       <div class="footer-brand">
-        <a class="brand" href="/" aria-label="<?= e(SITE_NAME) ?> — home">
+        <a class="brand" href="/" aria-label="<?= e(SITE_NAME) ?> home">
           <img class="footer-logo" src="/assets/img/logo/logo-light.png"
                alt="<?= e(SITE_NAME) ?>" width="2792" height="483" loading="lazy">
         </a>
@@ -65,6 +65,6 @@
   </div>
 </footer>
 
-<script src="/assets/js/main.js?v=2" defer></script>
+<script src="/assets/js/main.js?v=3" defer></script>
 </body>
 </html>
