@@ -461,6 +461,20 @@ strong { color: var(--ink); font-weight: 600; }
   box-shadow: 0 0 0 4px rgba(0,160,227,.15);
 }
 
+/* Panel that sits opposite the hero copy. */
+.hero-panel {
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+.hero-panel-title {
+  font-size: var(--step-1);
+  margin-bottom: 1.25rem;
+}
+.hero-panel .feature-list li { font-size: var(--step-0); }
+
 .hero-stats { display: grid; gap: .85rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .stat {
   padding: var(--space-md) 1.5rem;
@@ -617,10 +631,14 @@ strong { color: var(--ink); font-weight: 600; }
 }
 .logo-cell:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); border-color: transparent; }
 
-/* Cap both dimensions so a wide wordmark and a square badge sit at the same
-   optical weight. This matters more than the layout does. */
+/* Logo files are pre-normalised by aspect ratio (see the note in
+   includes/client-marquee.php), so each carries its own display size via its
+   width/height attributes and no CSS cap is needed. max-width is the safety net
+   for a logo dropped in without being processed first. */
 .logo-cell img {
-  max-height: 2.75rem; max-width: 100%; width: auto; object-fit: contain;
+  width: auto; height: auto;
+  max-width: 100%; max-height: 3.5rem;
+  object-fit: contain;
   filter: grayscale(1); opacity: .55;
   transition: filter .3s var(--ease), opacity .3s var(--ease);
 }

@@ -1,27 +1,29 @@
 <?php
 $page_title       = 'Student Success';
-$page_description = 'Rely Service\'s campus-to-corporate programme for graduate and post-graduate institutes: skills, employability, industry readiness and career exposure.';
+$page_description = 'Rely Service\'s campus-to-corporate programme: soft skills, quantitative aptitude, stream-specific technical training, interview preparation and internships for graduate and post-graduate institutes.';
 $active           = 'student';
 require __DIR__ . '/includes/header.php';
 
-/* TODO: replace all placeholder copy below with your real programme details. */
+/* Content drawn from Content/About Rely Service.pdf and the Master Training &
+   Placement deck. Specific figures are deliberately omitted until verified. */
 $sections = [
     [
         'id'    => 'skills',
         'title' => 'Skills',
-        'lead'  => 'The foundation employers screen on before they ever look at a degree.',
+        'lead'  => 'Communication and aptitude first — the two things students are screened on before anyone reads their marksheet.',
         'body'  => [
-            'Communication, aptitude, reasoning and the technical fundamentals relevant to each stream — delivered as a structured programme across the academic year rather than a crash course before placement season.',
-            'Students are assessed at entry so the cohort is taught at the right level, and progress is measured against that baseline instead of attendance alone.',
+            'Soft skills are usually taught on campus at a level that is fine for college and insufficient for a workplace. We start by rebuilding them properly: spoken and written communication, email etiquette, listening, and the confidence to hold a room.',
+            'Quantitative aptitude runs alongside it, because most large recruiters gate the entire process behind an aptitude test. Students practise on the kinds of assessments they will actually sit.',
         ],
         'panel' => [
             'heading' => 'Covered in this module',
             'items'   => [
-                'Spoken and written business communication',
-                'Quantitative aptitude and logical reasoning',
-                'Stream-relevant technical fundamentals',
-                'Digital and workplace software literacy',
-                'Entry and exit assessments with reporting',
+                'Communication skills, written and spoken',
+                'Quantitative aptitude and reasoning',
+                'Email and professional correspondence',
+                'Public speaking and overcoming stage fear',
+                'Personality development and work ethics',
+                'Time, stress and interpersonal management',
             ],
         ],
     ],
@@ -30,55 +32,56 @@ $sections = [
         'title' => 'Employability',
         'lead'  => 'Turning capable students into candidates who convert in the room.',
         'body'  => [
-            'Plenty of students who can do the job still lose the offer at the interview. This module works on the gap: how they present themselves on paper, in a group discussion, and across a panel that has forty other candidates that day.',
-            'Mock rounds are run to the standard of the recruiters who actually visit your campus, with individual feedback rather than a single group debrief.',
+            'Plenty of students who can do the job still lose the offer at the interview. This module works on that gap: how they present on paper, how they hold up in a group discussion, and how they handle a panel that has forty other candidates to see that day.',
+            'Mock group discussions and interviews are run to the standard of the recruiters who actually visit your campus, with individual feedback rather than a single group debrief.',
         ],
         'panel' => [
             'heading' => 'Covered in this module',
             'items'   => [
-                'Resume and profile building, including LinkedIn',
+                'CV writing and LinkedIn profile creation',
                 'Group discussion practice and feedback',
                 'Mock interviews — HR, technical and panel',
-                'Aptitude and assessment-platform practice',
-                'Offer negotiation and professional etiquette',
+                'Interview technique and recruitment counselling',
+                'Negotiation and professional etiquette',
             ],
         ],
     ],
     [
         'id'    => 'industry-readiness',
         'title' => 'Industry Readiness',
-        'lead'  => 'What nobody teaches in the syllabus, and every employer expects on day one.',
+        'lead'  => 'Stream-specific technical training, taught by people who work in the field.',
         'body'  => [
-            'The first ninety days of a job fail more graduates than the interview does. This module covers how work actually happens: teams, deadlines, escalation, feedback, documentation, and the tools a new joiner is assumed to already know.',
-            'Delivered through simulations and live case work rather than lectures, so students practise the behaviour instead of hearing about it.',
+            'Syllabi update slowly; industry does not. This module closes the distance with hands-on training in the tools and technologies each stream is actually hiring for — taught by practising professionals rather than from a textbook.',
+            'The catalogue is deep and stream-specific: Data Science, IoT, Robotics, AI and ML, cloud, cyber security and full-stack for engineering and polytechnic; AutoCAD, SolidWorks, CATIA and CNC for mechanical; VLSI, PLC/SCADA, embedded systems and PCB design for electrical; STAAD Pro, Revit and Primavera for civil; digital marketing, business analytics and ERP for management; clinical research, GMP and pharmaceutical data for pharma; SEO, design and digital content for mass media.',
         ],
         'panel' => [
-            'heading' => 'Covered in this module',
+            'heading' => 'Streams we train',
             'items'   => [
-                'Workplace behaviour, ethics and professionalism',
-                'Working in teams and managing deadlines',
-                'Industry tools and collaboration platforms',
-                'Live case studies and simulations',
-                'Domain orientation by sector',
+                'Engineering and Polytechnic — IT, mechanical, electrical, civil',
+                'Management — marketing, analytics, operations',
+                'Microbiology and Pharmacy',
+                'Mass Media',
+                'Nursing and Hospitality',
+                'Faculty development programmes to upskill teaching staff',
             ],
         ],
     ],
     [
         'id'    => 'career-exposure',
         'title' => 'Career Exposure',
-        'lead'  => 'Real contact with the industry students are about to enter.',
+        'lead'  => 'Internships, on-the-job training and mentors who have done the job.',
         'body'  => [
-            'Training only goes so far without exposure. We bring practitioners onto campus, place students into live projects and internships, and open up the career paths most students have never heard of.',
-            'For the institution, this also strengthens the recruiter relationships that placement outcomes ultimately depend on.',
+            'Training only goes so far without exposure. Students are placed into internships in their own domain, running from four weeks to six months depending on the course, with partners spanning startups, MSMEs and multinationals.',
+            'On-the-job training bridges what remains between theory and practice, and mentorship comes from professionals working in industry — including at the global technology firms most students only read about.',
         ],
         'panel' => [
-            'heading' => 'Covered in this module',
+            'heading' => 'What students get',
             'items'   => [
-                'Industry expert sessions and guest lectures',
-                'Live projects with partner organisations',
-                'Internship facilitation and tracking',
-                'Career-path and role awareness workshops',
-                'Recruiter engagement support for the placement cell',
+                'Domain internships, 4 to 24 weeks',
+                'On-the-job training with partner organisations',
+                'Industry mentorship from practising professionals',
+                'End-to-end placement support',
+                'Placements in India and internationally',
             ],
         ],
     ],
@@ -91,8 +94,9 @@ $sections = [
     <span class="eyebrow">Campus to Corporate</span>
     <h1>From classroom to offer letter, without the last-minute scramble</h1>
     <p class="lead">
-      A year-long, on-campus programme for graduate and post-graduate institutes that
-      builds skills, employability and industry readiness in the right order.
+      A structured programme delivered on your campus across the academic year:
+      communication and aptitude, stream-specific technical training by industry
+      professionals, interview preparation, and internships that lead somewhere.
     </p>
   </div>
 </section>
@@ -102,30 +106,64 @@ $sections = [
 <section class="section section--tint">
   <div class="container">
     <div class="section-head center">
-      <span class="eyebrow">How we run it</span>
-      <h2>Built into the academic calendar</h2>
+      <span class="eyebrow">Our method</span>
+      <h2>Four steps, in this order, for a reason</h2>
+      <p class="lead">
+        Technical training lands only once a student can communicate and clear an
+        aptitude round. We build in the sequence that placement actually rewards.
+      </p>
     </div>
     <div class="grid grid-4">
       <div class="card">
         <span class="card-icon" aria-hidden="true">01</span>
-        <h3>Assess</h3>
-        <p>Baseline the cohort so the programme is pitched at the students you have, not a generic batch.</p>
+        <h3>Master communication</h3>
+        <p>The skill every subsequent step depends on, and the one most commonly
+           under-taught on campus.</p>
       </div>
       <div class="card">
         <span class="card-icon" aria-hidden="true">02</span>
-        <h3>Plan</h3>
-        <p>Agree a calendar with your placement cell that fits around academics and exams.</p>
+        <h3>Aptitude preparation</h3>
+        <p>Because most large recruiters gate the entire process behind a test
+           before a human reads anything.</p>
       </div>
       <div class="card">
         <span class="card-icon" aria-hidden="true">03</span>
-        <h3>Deliver</h3>
-        <p>Trainers on campus through the year, with make-up sessions for students who fall behind.</p>
+        <h3>Technical training</h3>
+        <p>Industry-level, in the student's own domain, taught by people currently
+           working in it.</p>
       </div>
       <div class="card">
         <span class="card-icon" aria-hidden="true">04</span>
-        <h3>Report</h3>
-        <p>Progress and placement-readiness reporting your management committee can act on.</p>
+        <h3>Interview preparation</h3>
+        <p>Mock rounds with industry experts, then mentorship from professionals at
+           leading global technology firms.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container pillar-grid">
+    <div>
+      <span class="eyebrow">How it runs</span>
+      <h2>Built around your academic calendar</h2>
+      <p class="lead">
+        Sessions run on campus so students don't have to travel, and are scheduled
+        around teaching and examinations rather than competing with them.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-dark" href="/contact">Request a programme outline</a>
+      </div>
+    </div>
+    <div class="panel">
+      <h4>Programme shape</h4>
+      <ul class="feature-list">
+        <li><strong>Training</strong> — typically weekends, 2 to 4 hours per session</li>
+        <li><strong>Duration</strong> — 5 to 18 weeks per skill set</li>
+        <li><strong>Internships</strong> — 4 to 24 weeks, full-time, in domain</li>
+        <li><strong>Location</strong> — delivered at your campus</li>
+        <li><strong>Faculty</strong> — practising industry professionals</li>
+      </ul>
     </div>
   </div>
 </section>

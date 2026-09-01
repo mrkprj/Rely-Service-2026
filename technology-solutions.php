@@ -1,84 +1,89 @@
 <?php
 $page_title       = 'Technology Solutions';
-$page_description = 'Digital platforms, campus and academic systems, AI automation and custom software built for educational institutions by Rely Service, Mumbai.';
+$page_description = 'Educational ERP, digital transformation, NAAC and NBA accreditation systems and admission growth campaigns for colleges and universities, from Rely Service, Mumbai.';
 $active           = 'technology';
 require __DIR__ . '/includes/header.php';
 
-/* TODO: replace all placeholder copy below with real service descriptions. */
+/* Content drawn from Content/Rely-Service.txt. Anything not evidenced in the
+   source documents is written as capability rather than claim. */
 $sections = [
     [
-        'id'    => 'digital-platforms',
-        'title' => 'Digital Platforms',
-        'lead'  => 'The public and student-facing face of the institution — built to be fast, accessible and easy for your team to maintain.',
+        'id'    => 'educational-erp',
+        'title' => 'Educational ERP',
+        'lead'  => 'One system for admissions, records, examinations and placements — instead of six that don\'t talk to each other.',
         'body'  => [
-            'Most institutional websites are inherited from a vendor who has since moved on. We rebuild them as platforms your own staff can run: clear structure, working search, admissions journeys that don\'t lose applicants halfway through.',
-            'Everything is built mobile-first, because that is how students, parents and recruiters will actually open it.',
+            'Most institutions run admissions in one tool, attendance in another and examinations on a spreadsheet, then re-key the same student data between them. We implement and integrate the systems a campus runs on day to day so the data is entered once and used everywhere.',
+            'The placement cell suite matters particularly here: it is where student records, recruiter relationships and outcome reporting meet, and it is usually the weakest link in an otherwise functional stack.',
         ],
         'panel' => [
-            'heading' => 'Typically includes',
+            'heading' => 'What this covers',
             'items'   => [
-                'Institutional website and department microsites',
-                'Admissions and enquiry journeys',
-                'Student, faculty and alumni portals',
-                'Placement and recruiter-facing portals',
-                'Event, conference and accreditation microsites',
+                'Admission and fee management',
+                'Student Information System (SIS)',
+                'Academic examination and results',
+                'Placement cell portal suite',
+                'Institutional alumni network',
+                'Operational HR, library and payroll',
             ],
         ],
     ],
     [
-        'id'    => 'campus-systems',
-        'title' => 'Campus & Academic Systems',
-        'lead'  => 'The operational backbone: admissions to attendance to examinations to reporting.',
+        'id'    => 'digital-transformation',
+        'title' => 'IT & Digital Transformation',
+        'lead'  => 'The student-facing layer: portals, apps and the automation behind them.',
         'body'  => [
-            'We implement, integrate and support the systems an institution runs on day to day — and just as often, we make existing systems talk to each other so data stops being re-keyed between departments.',
-            'Accreditation and compliance reporting is designed in from the start, not assembled by hand the week before a visit.',
+            'This is the work students, parents and recruiters actually see — admission portals that don\'t lose applicants halfway through, apps that work on the phone a student really owns, and learning platforms built around how your faculty teach rather than how a vendor assumed they would.',
+            'Where AI genuinely removes load, we apply it: answering the same admissions questions a thousand times, drafting reports from data that already exists, guiding students through career options. Where a simpler automation would do the job better, we say so.',
         ],
         'panel' => [
-            'heading' => 'Typically includes',
+            'heading' => 'What this covers',
             'items'   => [
-                'Academic ERP implementation and integration',
-                'Learning management systems',
-                'Examination, results and records management',
-                'Attendance and timetabling',
-                'NAAC / NBA / AICTE reporting support',
+                'Custom college pages and admission portals',
+                'Responsive student and faculty native apps',
+                'Tailor-made custom SaaS and LMS suites',
+                'AI chatbots and intelligent automation',
+                'Academic AI document assistants',
+                'Predictive AI-based career guidance',
             ],
         ],
     ],
     [
-        'id'    => 'ai-automation',
-        'title' => 'AI & Automation',
-        'lead'  => 'Applied where it removes real administrative load — not bolted on for the brochure.',
+        'id'    => 'accreditation',
+        'title' => 'Accreditation & Compliance',
+        'lead'  => 'Evidence assembled continuously through the year, not reconstructed the week before a visit.',
         'body'  => [
-            'The highest-value AI work on a campus is unglamorous: answering the same admissions questions a thousand times, drafting reports from data that already exists, sorting documents, flagging students who are drifting before the term ends.',
-            'We start from a specific bottleneck your staff can name, and we are candid when a simpler automation would do the job better than a model.',
+            'NAAC, NBA, NIRF and AICTE submissions fail on documentation far more often than on substance. The data almost always exists somewhere on campus; what is missing is a system that captures it as it happens and formats it the way the framework expects.',
+            'We build that layer over your existing systems, so a submission becomes an export rather than a scramble — and so internal audits surface gaps while there is still time to close them.',
         ],
         'panel' => [
-            'heading' => 'Typically includes',
+            'heading' => 'What this covers',
             'items'   => [
-                'Admissions and student support assistants',
-                'Document processing and verification workflows',
-                'Automated academic and compliance reporting',
-                'Early-warning analytics for at-risk students',
-                'Staff training on responsible AI use',
+                'NAAC document assembly systems',
+                'NBA academic compliance controls',
+                'ISO framework data registers',
+                'NIRF metric calculators',
+                'AICTE verification readiness tools',
+                'Internal institutional audit engines',
             ],
         ],
     ],
     [
-        'id'    => 'custom-technology',
-        'title' => 'Custom Technology',
-        'lead'  => 'For the processes that are genuinely yours, where off-the-shelf software has never quite fit.',
+        'id'    => 'digital-growth',
+        'title' => 'Digital Growth',
+        'lead'  => 'Filling seats: search, social and admission campaigns run as a measured funnel.',
         'body'  => [
-            'Every institution has two or three workflows that no product on the market matches — a scholarship process, an industry-partnership tracker, a research-grant pipeline. Those are worth building properly.',
-            'We build them as maintainable systems with documentation and handover, so you are not permanently dependent on us to change a form field.',
+            'Admissions are competitive and increasingly decided online, well before a prospectus is ever opened. We run search, social and paid campaigns for institutions with the funnel instrumented end to end, so you can see which channels produce enquiries that actually convert to enrolments.',
+            'The same infrastructure keeps alumni reachable — the group most institutions under-use, and the one most likely to send the next cohort of students and recruiters.',
         ],
         'panel' => [
-            'heading' => 'How we work',
+            'heading' => 'What this covers',
             'items'   => [
-                'Discovery on campus with the people who use the process',
-                'Prototype reviewed before full build begins',
-                'Built on mainstream, well-supported technology',
-                'Documentation and staff handover included',
-                'Support and enhancement after go-live',
+                'Search engine optimisation',
+                'Social media audience growth',
+                'Qualified lead generation campaigns',
+                'Brand communications strategy',
+                'Admission campaign funnel management',
+                'Alumni management',
             ],
         ],
     ],
@@ -91,13 +96,40 @@ $sections = [
     <span class="eyebrow">Technology Solutions</span>
     <h1>Technology built for how a campus actually runs</h1>
     <p class="lead">
-      Platforms, academic systems, automation and custom software — delivered by a team
-      that works inside educational institutions all year, not just at procurement time.
+      Educational ERP, the student-facing digital layer, accreditation evidence and
+      admission growth — delivered by a team that works inside educational
+      institutions all year, not just at procurement time.
     </p>
   </div>
 </section>
 
 <?php require __DIR__ . '/includes/pillar-sections.php'; ?>
+
+<section class="section section--ink">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">How we work</span>
+      <h2>Built to be handed over</h2>
+    </div>
+    <div class="grid grid-3">
+      <div>
+        <h3>We start with the people using it</h3>
+        <p>Discovery happens on campus, with the staff who run the process today —
+           not from a requirements document written elsewhere.</p>
+      </div>
+      <div>
+        <h3>Mainstream technology only</h3>
+        <p>We build on well-supported platforms so another developer can pick the
+           system up. No proprietary lock-in.</p>
+      </div>
+      <div>
+        <h3>Documentation and training included</h3>
+        <p>You should never need to call us to change a form field. Handover is part
+           of delivery, not an upsell.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="cta-band">
   <div class="container">

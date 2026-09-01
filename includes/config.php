@@ -9,21 +9,22 @@
 // --- Company details ------------------------------------------------------
 define('SITE_NAME',    'Rely Service');
 define('SITE_TAGLINE', 'Technology, talent and enterprise for education');
-define('SITE_URL',     'https://www.relyservice.in');   // TODO: real domain, no trailing slash
+// TODO: CONFIRM — the presentation uses relyservice.com, this was set up as .in.
+define('SITE_URL',     'https://www.relyservice.com');  // real domain, no trailing slash
 
 define('COMPANY_ADDRESS_LINE1', '[Office address line 1]');
 define('COMPANY_ADDRESS_LINE2', '[Area, Landmark]');
 define('COMPANY_CITY',          'Mumbai');
 define('COMPANY_STATE',         'Maharashtra');
 define('COMPANY_PIN',           '400001');
-define('COMPANY_PHONE',         '+91 00000 00000');      // TODO
-define('COMPANY_EMAIL',         'info@relyservice.in');  // TODO
+define('COMPANY_PHONE',         '+91 98190 32403');       // from the T&P deck
+define('COMPANY_EMAIL',         'tnp@relyservice.com');   // from the T&P deck
 
 // Where enquiry form submissions are delivered. Use a shared inbox, not a
 // personal one, so nothing is lost when someone is on leave.
-define('ENQUIRY_TO',   'info@relyservice.in');           // TODO
+define('ENQUIRY_TO',   'tnp@relyservice.com');
 // Must be an address on YOUR domain or shared hosts will drop the mail.
-define('ENQUIRY_FROM', 'website@relyservice.in');        // TODO
+define('ENQUIRY_FROM', 'website@relyservice.com');       // TODO: create this mailbox
 
 // --- Social (leave empty string to hide the icon) -------------------------
 define('SOCIAL_LINKEDIN', 'https://www.linkedin.com/company/relyservice');
@@ -37,10 +38,10 @@ $NAV = [
         'label' => 'Technology Solutions',
         'url'   => '/technology-solutions',
         'children' => [
-            ['Digital Platforms',        '/technology-solutions#digital-platforms'],
-            ['Campus & Academic Systems','/technology-solutions#campus-systems'],
-            ['AI & Automation',          '/technology-solutions#ai-automation'],
-            ['Custom Technology',        '/technology-solutions#custom-technology'],
+            ['Educational ERP',            '/technology-solutions#educational-erp'],
+            ['IT & Digital Transformation','/technology-solutions#digital-transformation'],
+            ['Accreditation & Compliance', '/technology-solutions#accreditation'],
+            ['Digital Growth',             '/technology-solutions#digital-growth'],
         ],
     ],
     'student' => [

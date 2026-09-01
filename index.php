@@ -5,17 +5,31 @@ $active           = '';
 require __DIR__ . '/includes/header.php';
 
 /* ---------------------------------------------------------------------------
-   PLACEHOLDER CLIENT LIST. Replace each entry with a real institution.
-   Drop logo files into /assets/img/clients/ and set the 'logo' key to the
-   filename; leave 'logo' empty and the cell falls back to the name in text.
+   CLIENT LIST.
+   'name' is used as the image alt text, so it must be the institution's real
+   name. 'w'/'h' are the display size in CSS pixels; the file in
+   assets/img/clients/ is twice that for retina screens.
+
+   To add a client: put the logo through the same normalisation (see README),
+   then add a row here. Order is the order they appear in the marquee.
+
+   Originals are kept untouched in assets/img/clients-src/.
    --------------------------------------------------------------------------- */
 $clients = [
-    ['name' => 'Client Institute One',   'logo' => ''],
-    ['name' => 'Client Institute Two',   'logo' => ''],
-    ['name' => 'Client Institute Three', 'logo' => ''],
-    ['name' => 'Client Institute Four',  'logo' => ''],
-    ['name' => 'Client Institute Five',  'logo' => ''],
-    ['name' => 'Client Institute Six',   'logo' => ''],
+    ['name' => "SNDT Women's University",                'logo' => 'sndt-womens-university.png',      'w' => 53,  'h' => 38],
+    ['name' => 'WISE — SNDTWU Incubation Centre',        'logo' => 'wise-sndtwu-incubation.png',      'w' => 46,  'h' => 46],
+    ['name' => 'The Kandivali Education Society',        'logo' => 'kandivali-education-society.png', 'w' => 61,  'h' => 30],
+    ['name' => "KES' Shri J. H. Patel Law College",      'logo' => 'jh-patel-law-college.png',        'w' => 52,  'h' => 46],
+    ['name' => 'Thakur Trusts',                          'logo' => 'thakur-trusts.png',               'w' => 46,  'h' => 46],
+    ['name' => 'Xaviers Institute of Business Management Studies', 'logo' => 'xibms.png',             'w' => 121, 'h' => 30],
+    ['name' => 'Indian Institutes of Executive Learning','logo' => 'iiel.png',                        'w' => 46,  'h' => 46],
+    ['name' => 'Aditya School of Business Management',   'logo' => 'asbm.png',                        'w' => 46,  'h' => 46],
+    ['name' => 'Alard',                                  'logo' => 'alard.png',                       'w' => 40,  'h' => 52],
+    ['name' => 'Montfort Junior College, Dadar',         'logo' => 'montfort-junior-college.png',     'w' => 46,  'h' => 46],
+    ['name' => 'US Institute of 3D Technology',          'logo' => 'us-institute-3d-technology.png',  'w' => 41,  'h' => 52],
+    ['name' => 'Aerodynamiks Academy',                   'logo' => 'aerodynamiks-academy.png',        'w' => 46,  'h' => 46],
+    ['name' => 'Study Hour',                             'logo' => 'study-hour.png',                  'w' => 46,  'h' => 46],
+    ['name' => 'Luxuria',                                'logo' => 'luxuria.png',                     'w' => 90,  'h' => 30],
 ];
 ?>
 
@@ -30,25 +44,32 @@ $clients = [
       <h1>One partner for campus <span class="gradient-text">technology</span>,
           student readiness and enterprise.</h1>
       <p class="lead">
-        <!-- TODO: replace with your positioning sentence -->
         Rely Service works alongside graduate and post-graduate institutions to modernise
-        their systems, prepare students for the corporate world, and turn campus ideas
-        into working ventures.
+        the systems they run on, prepare students for the corporate world, and turn
+        campus ideas into working ventures.
       </p>
       <div class="btn-row">
         <a class="btn btn-primary" href="/contact">Talk to our team</a>
         <a class="btn btn-outline" href="#what-we-do">See what we do</a>
       </div>
-      <p class="hero-note">Working with graduate and post-graduate institutes since <!-- TODO: year -->20XX</p>
+      <p class="hero-note">Delivered on campus, across the academic year</p>
     </div>
 
-    <!-- TODO: replace with real, verifiable numbers. Delete this block if you
-         don't have numbers yet — an empty claim is worse than no claim. -->
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num">00+</span><span class="stat-label">Institutions partnered</span></div>
-      <div class="stat"><span class="stat-num">0,000</span><span class="stat-label">Students trained</span></div>
-      <div class="stat"><span class="stat-num">00+</span><span class="stat-label">Platforms delivered</span></div>
-      <div class="stat"><span class="stat-num">00</span><span class="stat-label">Years in education</span></div>
+    <?php /* The impact-numbers block that sat here has been removed until the
+             figures are verified — the source documents disagreed with each
+             other. See the note in CONTENT.md; the .stat styles remain in the
+             stylesheet, so restoring it is a paste-back. */ ?>
+    <div class="hero-panel">
+      <div class="wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <h2 class="hero-panel-title">What we're asked for most</h2>
+      <ul class="feature-list">
+        <li><strong>Campus to Corporate</strong> — soft skills, aptitude, technical training and placement support</li>
+        <li><strong>Educational ERP</strong> — admissions, student records, examinations, placement cell</li>
+        <li><strong>Accreditation &amp; Compliance</strong> — NAAC, NBA, NIRF and AICTE readiness</li>
+        <li><strong>Incubation</strong> — helping campus ventures get built, launched and funded</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -69,16 +90,16 @@ $clients = [
       <article class="card">
         <span class="card-icon" aria-hidden="true">01</span>
         <h3>Technology Solutions</h3>
-        <p>Digital platforms, academic and campus systems, AI-assisted workflows, and
-           custom software built for how an institution actually runs.</p>
+        <p>Educational ERP, admission and student portals, accreditation evidence
+           systems, and the digital growth work that fills your seats.</p>
         <a class="link-arrow" href="/technology-solutions">Explore technology</a>
       </article>
 
       <article class="card">
         <span class="card-icon" aria-hidden="true">02</span>
         <h3>Student Success</h3>
-        <p>Our campus-to-corporate programme: the skills, employability training and
-           industry exposure that move students from classroom to offer letter.</p>
+        <p>Our campus-to-corporate programme: communication and aptitude, technical
+           training by industry professionals, interviews, internships and placement.</p>
         <a class="link-arrow" href="/student-success">Explore student success</a>
       </article>
 
@@ -122,10 +143,10 @@ $clients = [
     <div class="panel">
       <h4>Where we typically start</h4>
       <ul class="feature-list">
-        <li><strong>Digital Platforms</strong> — websites, portals and student-facing apps</li>
-        <li><strong>Campus &amp; Academic Systems</strong> — ERP, LMS, examination and records</li>
-        <li><strong>AI &amp; Automation</strong> — reporting, support and repetitive admin work</li>
-        <li><strong>Custom Technology</strong> — built when nothing off-the-shelf fits</li>
+        <li><strong>Educational ERP</strong> — admissions, records, examinations, placement cell</li>
+        <li><strong>IT &amp; Digital Transformation</strong> — portals, apps, LMS, AI assistants</li>
+        <li><strong>Accreditation &amp; Compliance</strong> — NAAC, NBA, NIRF, AICTE readiness</li>
+        <li><strong>Digital Growth</strong> — search, social and admission campaigns</li>
       </ul>
     </div>
   </div>
@@ -137,10 +158,10 @@ $clients = [
     <div class="panel" style="background:#fff">
       <h4>The campus-to-corporate arc</h4>
       <ol class="numbered">
-        <li><strong>Skills</strong><br>Communication, aptitude and the technical basics employers screen on.</li>
-        <li><strong>Employability</strong><br>Resumes, group discussions, interviews, assessment practice.</li>
-        <li><strong>Industry Readiness</strong><br>Workplace behaviour, tools and expectations from day one.</li>
-        <li><strong>Career Exposure</strong><br>Industry sessions, live projects and real recruiter contact.</li>
+        <li><strong>Skills</strong><br>Communication and quantitative aptitude — what students are screened on first.</li>
+        <li><strong>Employability</strong><br>CVs, group discussions, mock interviews and recruitment counselling.</li>
+        <li><strong>Industry Readiness</strong><br>Stream-specific technical training from practising professionals.</li>
+        <li><strong>Career Exposure</strong><br>Domain internships from 4 to 24 weeks, and end-to-end placement support.</li>
       </ol>
     </div>
     <div>
@@ -208,9 +229,9 @@ $clients = [
            a distance.</p>
       </div>
       <div>
-        <h3>Measured on outcomes</h3>
-        <p>Placement numbers, system uptime, ventures launched. We report on what the
-           management committee actually asks about.</p>
+        <h3>Trainers who work in industry</h3>
+        <p>Technical training is delivered by practising professionals, so what
+           students learn is what employers are currently hiring for.</p>
       </div>
     </div>
   </div>

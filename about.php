@@ -11,9 +11,8 @@ require __DIR__ . '/includes/header.php';
     <span class="eyebrow">About us</span>
     <h1>We work inside educational institutions, all year</h1>
     <p class="lead">
-      <!-- TODO: replace with your real positioning paragraph -->
-      Rely Service is a Mumbai-based partner to colleges and universities. We bring
-      technology, student development and entrepreneurship together under one team,
+      Rely Service partners with colleges, universities and institutes to bring
+      technology, student development and entrepreneurship together under one team —
       because on a campus those three things are never really separate.
     </p>
   </div>
@@ -26,23 +25,28 @@ require __DIR__ . '/includes/header.php';
       <h2>Built from the campus side of the table</h2>
     </div>
     <div>
-      <!-- TODO: replace these three paragraphs with the real founding story.
-           Specifics beat adjectives: when you started, what problem you kept
-           seeing, what you decided to do about it. -->
+      <!-- TODO: CONFIRM. Drafted from the About document; the founding specifics
+           (year, first institution, what prompted it) would make this much
+           stronger and are the kind of detail institutions look for. -->
       <p>
-        Rely Service began with a pattern we kept seeing on campuses across Mumbai:
-        institutions buying technology from one vendor, training from another, and
-        entrepreneurship support from a third — with nobody accountable for whether
-        any of it changed a student's outcome.
+        Rely Service began with training. Working across colleges in Mumbai, we kept
+        meeting the same problem from two directions: employers describing graduates
+        who weren't ready for the workplace, and students who had done everything
+        their syllabus asked of them.
       </p>
       <p>
-        We built the company to sit on the institution's side of that problem. One team,
-        working through the academic year, answerable for results that management
-        committees actually care about.
+        The gap wasn't ability. It was that industry moves faster than a curriculum
+        can be revised, and that the skills placement actually turns on — communication,
+        aptitude, current technical tools — sat outside what anyone was formally
+        responsible for teaching.
       </p>
       <p>
-        Today we work with graduate and post-graduate institutes across India, from
-        placement-focused engagements to full campus technology programmes.
+        Our campus-to-corporate programme grew from that, and the rest followed from
+        working alongside institutions long enough to see their other problems.
+        Placement cells running on spreadsheets. Accreditation evidence reconstructed
+        from scratch every cycle. Student ventures with genuine promise and nowhere to
+        take them. Today we work across all three: technology, student success, and
+        incubation.
       </p>
     </div>
   </div>
@@ -56,24 +60,24 @@ require __DIR__ . '/includes/header.php';
     </div>
     <div class="grid grid-3">
       <div class="card">
-        <h3>Say no clearly</h3>
-        <p>If an engagement isn't right for us, or you don't need what you're asking for,
-           we say so before the proposal stage.</p>
+        <h3>Taught by people who do the work</h3>
+        <p>Technical training comes from practising industry professionals, not from
+           a textbook or a trainer who left the field a decade ago.</p>
       </div>
       <div class="card">
         <h3>On campus, not over email</h3>
-        <p>Our people are physically present through the year. Education doesn't work
-           well as a remote-only service.</p>
+        <p>Our team delivers on site through the academic year. Education doesn't
+           work well as a remote-only service.</p>
+      </div>
+      <div class="card">
+        <h3>Say no clearly</h3>
+        <p>If an engagement isn't right for us, or you don't need what you're asking
+           for, we say so before the proposal stage.</p>
       </div>
       <div class="card">
         <h3>Hand over what we build</h3>
-        <p>Documentation and training are part of delivery. You should never be locked
-           into us to change a form field.</p>
-      </div>
-      <div class="card">
-        <h3>Measure what matters</h3>
-        <p>Placement conversion, system uptime, ventures still running. Not sessions
-           delivered or tickets closed.</p>
+        <p>Documentation and training are part of delivery. You should never be
+           locked into us to change a form field.</p>
       </div>
       <div class="card">
         <h3>One accountable team</h3>
@@ -82,15 +86,17 @@ require __DIR__ . '/includes/header.php';
       </div>
       <div class="card">
         <h3>Fit the academic calendar</h3>
-        <p>We plan around exams, admissions and placement season rather than asking the
-           institution to work around us.</p>
+        <p>We plan around admissions, examinations and placement season rather than
+           asking the institution to work around us.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TODO: A leadership section belongs here once you have photos and bios.
-     Institutions checking a new vendor look for named people. Uncomment and fill in.
+<!-- TODO: Leadership section. The T&P deck has bios for Kunal, Harnish, Rushit
+     and Mark — institutions vetting a new vendor look for named people, so this
+     is worth adding. Send photos (square, 400px+) into assets/img/team/ and
+     confirm each person's current role and how they want to be described.
 
 <section class="section">
   <div class="container">
@@ -98,9 +104,10 @@ require __DIR__ . '/includes/header.php';
       <span class="eyebrow">Leadership</span>
       <h2>The people you'll be working with</h2>
     </div>
-    <div class="grid grid-3">
+    <div class="grid grid-4">
       <article class="card">
-        <img src="/assets/img/team/name.jpg" alt="" width="120" height="120" style="border-radius:50%;margin-bottom:1rem">
+        <img src="/assets/img/team/name.jpg" alt="" width="120" height="120"
+             style="border-radius:50%;margin-bottom:1rem">
         <h3>Full Name</h3>
         <p><strong>Role</strong><br>Two lines on background and what they lead here.</p>
       </article>

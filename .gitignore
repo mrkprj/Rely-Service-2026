@@ -2,3 +2,6 @@ storage/*.csv
 .DS_Store
 Thumbs.db
 *.log
+
+# Source documents supplied by the client (not part of the deployed site)
+Content/

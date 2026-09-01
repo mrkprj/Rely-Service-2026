@@ -33,8 +33,13 @@ if (!function_exists('client_tile')) {
     { ?>
   <li class="logo-cell">
     <?php if (!empty($client['logo'])): ?>
+      <?php /* Files are pre-normalised so every logo carries equal optical
+               weight; w/h are the intended display size and the file itself is
+               2x that for retina. Emitting both also prevents layout shift. */ ?>
       <img src="/assets/img/clients/<?= e($client['logo']) ?>"
-           alt="<?= e($client['name']) ?>" loading="lazy" decoding="async">
+           alt="<?= e($client['name']) ?>"
+           width="<?= (int) ($client['w'] ?? 0) ?>" height="<?= (int) ($client['h'] ?? 0) ?>"
+           loading="lazy" decoding="async">
     <?php else: ?>
       <span><?= e($client['name']) ?></span>
     <?php endif; ?>
