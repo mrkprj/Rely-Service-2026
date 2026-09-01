@@ -5,9 +5,9 @@
     <div class="footer-grid">
 
       <div class="footer-brand">
-        <a class="brand brand-light" href="/">
-          <span class="brand-mark" aria-hidden="true">R</span>
-          <span class="brand-text"><?= e(SITE_NAME) ?></span>
+        <a class="brand" href="/" aria-label="<?= e(SITE_NAME) ?> — home">
+          <img class="footer-logo" src="/assets/img/logo/logo-light.png"
+               alt="<?= e(SITE_NAME) ?>" width="2792" height="483" loading="lazy">
         </a>
         <p class="footer-blurb">
           <!-- TODO: one-sentence positioning statement -->

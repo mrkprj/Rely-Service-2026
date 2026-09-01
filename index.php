@@ -22,9 +22,13 @@ $clients = [
 <!-- 1. HERO ============================================================== -->
 <section class="hero">
   <div class="container hero-grid">
-    <div>
+    <div class="hero-copy">
+      <div class="wave" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
       <span class="eyebrow">Mumbai · Serving institutions across India</span>
-      <h1>One partner for campus technology, student readiness and enterprise.</h1>
+      <h1>One partner for campus <span class="gradient-text">technology</span>,
+          student readiness and enterprise.</h1>
       <p class="lead">
         <!-- TODO: replace with your positioning sentence -->
         Rely Service works alongside graduate and post-graduate institutions to modernise
@@ -35,6 +39,7 @@ $clients = [
         <a class="btn btn-primary" href="/contact">Talk to our team</a>
         <a class="btn btn-outline" href="#what-we-do">See what we do</a>
       </div>
+      <p class="hero-note">Working with graduate and post-graduate institutes since <!-- TODO: year -->20XX</p>
     </div>
 
     <!-- TODO: replace with real, verifiable numbers. Delete this block if you
@@ -52,6 +57,9 @@ $clients = [
 <section class="section" id="what-we-do">
   <div class="container">
     <div class="section-head center">
+      <div class="wave wave--center" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
       <span class="eyebrow">What we do</span>
       <h2>Three practices, built around the same institution</h2>
       <p class="lead">Engage any one of them on its own, or all three as a single roadmap.</p>

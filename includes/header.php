@@ -20,6 +20,7 @@ $canonical        = SITE_URL . strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
+<script>document.documentElement.className += ' js';</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?= e($full_title) ?></title>
@@ -34,11 +35,14 @@ $canonical        = SITE_URL . strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
 <meta property="og:image" content="<?= e(SITE_URL) ?>/assets/img/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="/assets/img/favicon.png" type="image/png">
+<link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<meta name="theme-color" content="#00a0e3">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap">
-<link rel="stylesheet" href="/assets/css/style.css?v=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/style.css?v=2">
 
 <script type="application/ld+json">
 {
@@ -66,10 +70,9 @@ $canonical        = SITE_URL . strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
 
 <header class="site-header" id="site-header">
   <div class="container header-inner">
-    <a class="brand" href="/">
-      <!-- TODO: replace with <img src="/assets/img/logo.svg" alt="Rely Service"> -->
-      <span class="brand-mark" aria-hidden="true">R</span>
-      <span class="brand-text"><?= e(SITE_NAME) ?></span>
+    <a class="brand" href="/" aria-label="<?= e(SITE_NAME) ?> — home">
+      <img class="brand-logo" src="/assets/img/logo/logo.png"
+           alt="<?= e(SITE_NAME) ?>" width="2792" height="483">
     </a>
 
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
