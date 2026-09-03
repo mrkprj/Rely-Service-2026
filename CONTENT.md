@@ -268,17 +268,6 @@ seeing on campuses, what did you decide to do about it?
 | | |
 | | |
 
-### Leadership (optional but recommended)
-
-Institutions vetting a new vendor look for named people. For each person:
-
-| Name | Role | Two-line bio | Photo filename |
-| --- | --- | --- | --- |
-| | | | |
-| | | | |
-
-Photos: square, at least 400 by 400, into `assets/img/team/`.
-
 ---
 
 ## 7. Contact page
@@ -307,7 +296,6 @@ and paste the whole `<iframe>` code here:
 - [ ] **Logo**: done (`assets/img/logo/`)
 - [ ] **Client logos**: PNG or SVG, transparent background, into `assets/img/clients/`
 - [ ] **Written permission** for each client logo
-- [ ] **Team photos**, if you want a leadership section
 - [ ] **A photo or two of your team working on campus**. Optional, but real
       photography lifts a site like this more than any amount of styling
 - [ ] **Capability statement PDF**, if you have one for sales emails

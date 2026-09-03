@@ -93,29 +93,6 @@ require __DIR__ . '/includes/header.php';
   </div>
 </section>
 
-<!-- TODO: Leadership section. The T&P deck has bios for Kunal, Harnish, Rushit
-     and Mark. Institutions vetting a new vendor look for named people, so this
-     is worth adding. Send photos (square, 400px+) into assets/img/team/ and
-     confirm each person's current role and how they want to be described.
-
-<section class="section">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Leadership</span>
-      <h2>The people you'll be working with</h2>
-    </div>
-    <div class="grid grid-4">
-      <article class="card">
-        <img src="/assets/img/team/name.jpg" alt="" width="120" height="120"
-             style="border-radius:50%;margin-bottom:1rem">
-        <h3>Full Name</h3>
-        <p><strong>Role</strong><br>Two lines on background and what they lead here.</p>
-      </article>
-    </div>
-  </div>
-</section>
--->
-
 <section class="cta-band">
   <div class="container">
     <h2>Work with us</h2>
