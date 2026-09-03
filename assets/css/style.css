@@ -299,11 +299,14 @@ strong { color: var(--ink); font-weight: 600; }
 .btn-outline { background: transparent; border-color: var(--line); color: var(--ink); }
 .btn-outline:hover { border-color: var(--ink); background: var(--ink); color: #fff; }
 
-.section--ink .btn-outline, .hero .btn-outline, .page-hero .btn-outline, .cta-band .btn-outline {
-  border-color: rgba(255,255,255,.28); color: #fff;
+/* Only on genuinely dark backgrounds. The hero and page-hero were in this list
+   from when they had dark backgrounds; once they became light, the white text
+   made "See what we do" invisible against white. */
+.section--ink .btn-outline, .cta-band .btn-outline, .site-footer .btn-outline {
+  border-color: rgba(255,255,255,.30); color: #fff;
 }
-.section--ink .btn-outline:hover, .hero .btn-outline:hover,
-.page-hero .btn-outline:hover, .cta-band .btn-outline:hover {
+.section--ink .btn-outline:hover, .cta-band .btn-outline:hover,
+.site-footer .btn-outline:hover {
   background: #fff; border-color: #fff; color: var(--ink);
 }
 
@@ -771,6 +774,17 @@ strong { color: var(--ink); font-weight: 600; }
 }
 @media (max-width: 900px) { .pillar-grid { grid-template-columns: 1fr; gap: var(--space-md); } }
 
+/* On a service page the right column runs much longer than the left, leaving a
+   tall gap beside the heading. Pinning the heading keeps it beside the copy it
+   describes instead of stranding it at the top. Offset clears the sticky header
+   and the sticky jump nav beneath it. */
+@media (min-width: 901px) {
+  .pillar .pillar-grid > *:first-child {
+    position: sticky;
+    top: calc(var(--header-h) + 5rem);
+  }
+}
+
 .pillar-index {
   font-family: var(--font-display);
   font-size: var(--step-2); font-weight: 800; letter-spacing: -.04em; line-height: 1;
@@ -911,12 +925,19 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
 .footer-heading {
   font-size: var(--step--1); color: #fff; margin-bottom: 1rem;
   font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  line-height: 1.35;
+  /* Reserve two lines. "Incubation & Entrepreneurship" wraps while the other
+     headings do not, which pushed that column's links out of alignment. */
+  min-height: 2.7em;
 }
+@media (max-width: 1080px) { .footer-heading { min-height: 0; } }
 .footer-heading a { color: #fff; text-decoration: none; }
 .footer-heading a:hover { color: var(--brand-cyan); }
 
 .footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
 .site-footer a { color: rgba(255,255,255,.60); text-decoration: none; transition: color .18s var(--ease); }
+.site-footer a.btn { color: #fff; }
+.site-footer a.btn:hover { color: var(--ink); }
 .site-footer a:hover { color: #fff; }
 
 .footer-contact address { font-style: normal; margin-bottom: 1.25rem; line-height: 1.9; }
@@ -962,8 +983,11 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
   font-weight: 800;
   letter-spacing: -.045em;
   line-height: 1;
-  background: linear-gradient(115deg, var(--brand-cyan-lt) 0%, #a6b1ff 55%, var(--accent-lt) 100%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+  /* Solid, not a gradient. A gradient is clipped to each numeral's own box, so
+     a one-character value sampled only the first stop while a six-character one
+     spanned the whole ramp: the figures in a single row came out different
+     colours. */
+  color: var(--brand-cyan-lt);
   margin-bottom: .55rem;
 }
 .stat-caption {
@@ -975,10 +999,7 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
 .stats-band--light { background: var(--line); border-color: var(--line); }
 .stats-band--light .stat-cell { background: var(--surface); }
 .stats-band--light .stat-cell:hover { background: var(--surface-2); }
-.stats-band--light .stat-value {
-  background: var(--brand-gradient);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+.stats-band--light .stat-value { color: var(--brand-blue); }
 .stats-band--light .stat-caption { color: var(--muted); }
 
 /* Placeholder figures render as literal "XX" rather than invented numbers, so
