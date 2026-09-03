@@ -3,4 +3,4 @@ Allow: /
 Disallow: /storage/
 Disallow: /includes/
 
-Sitemap: https://www.relyservice.in/sitemap.xml
+Sitemap: https://www.relyservice.com/sitemap.xml

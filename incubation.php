@@ -157,7 +157,7 @@ $sections = [
       </div>
     </div>
     <div class="panel" style="background:#fff">
-      <h4>Where institutions bring us in</h4>
+      <h3>Where institutions bring us in</h3>
       <ul class="feature-list">
         <li><strong>From scratch</strong>: no centre yet, starting with the decision to build one</li>
         <li><strong>Newly established</strong>: a centre exists on paper and needs to become operational</li>

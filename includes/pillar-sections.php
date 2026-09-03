@@ -52,7 +52,7 @@
 
             <?php if (!empty($s['panel'])): ?>
               <div class="panel" style="margin-top:var(--space-md)">
-                <h4><?= e($s['panel']['heading']) ?></h4>
+                <h3><?= e($s['panel']['heading']) ?></h3>
                 <ul class="feature-list">
                   <?php foreach ($s['panel']['items'] as $item): ?>
                     <li><?= e($item) ?></li>

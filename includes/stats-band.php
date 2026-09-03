@@ -53,7 +53,7 @@ $placeholders = [];
 <?php if ($placeholders): ?>
 <!-- PLACEHOLDER FIGURES STILL TO BE SUPPLIED ON THIS PAGE:
 <?php foreach ($placeholders as $caption): ?>
-     - <?= $caption ?>
+     - <?= str_replace(['--', '>'], ' ', (string) $caption) ?>
 
 <?php endforeach; ?>
      Replace the X's in the $stats array on this page with the real numbers. -->

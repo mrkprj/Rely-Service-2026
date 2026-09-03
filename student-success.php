@@ -182,7 +182,7 @@ $sections = [
       </div>
     </div>
     <div class="panel">
-      <h4>Programme shape</h4>
+      <h3>Programme shape</h3>
       <ul class="feature-list">
         <li><strong>Training</strong>: typically weekends, 2 to 4 hours per session</li>
         <li><strong>Duration</strong>: 5 to 18 weeks per skill set</li>

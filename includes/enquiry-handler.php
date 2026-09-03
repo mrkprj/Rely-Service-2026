@@ -145,6 +145,23 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 }
 
 /**
+ * Neutralise spreadsheet formula injection.
+ *
+ * Excel and LibreOffice execute a cell beginning with = + - @ or a control
+ * character, so a name field containing =cmd|... runs when staff open the
+ * enquiries file. Prefixing with an apostrophe forces the cell to text.
+ * This file exists to be opened by a person, which is exactly why it matters.
+ */
+function csv_safe(?string $v): string
+{
+    $v = (string) $v;
+    if ($v !== '' && strpbrk($v[0], "=+-@\t\r") !== false) {
+        return "'" . $v;
+    }
+    return $v;
+}
+
+/**
  * Append the enquiry to a CSV outside the web root if possible.
  * If mail() ever breaks, this is the record that saves the lead.
  */
@@ -167,8 +184,13 @@ function enquiry_log(array $data, string $interest, bool $mailed): void
             fputcsv($fh, ['timestamp', 'name', 'phone', 'email', 'service', 'message', 'mail_sent']);
         }
         fputcsv($fh, [
-            date('c'), $data['name'], $data['phone'], $data['email'],
-            $interest, $data['message'], $mailed ? 'yes' : 'no',
+            date('c'),
+            csv_safe($data['name']),
+            csv_safe($data['phone']),
+            csv_safe($data['email']),
+            csv_safe($interest),
+            csv_safe($data['message']),
+            $mailed ? 'yes' : 'no',
         ]);
         flock($fh, LOCK_UN);
     }

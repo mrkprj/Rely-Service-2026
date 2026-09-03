@@ -44,7 +44,7 @@
       }
     });
 
-    window.matchMedia('(min-width: 1001px)').addEventListener('change', function (e) {
+    window.matchMedia('(min-width: 1121px)').addEventListener('change', function (e) {
       if (e.matches) setMenu(false);
     });
   }
@@ -63,7 +63,7 @@
   /* Note: logo tiles are deliberately excluded. They live inside the marquee
      track, and a reveal transform on them would fight the slide animation. */
   var revealables = document.querySelectorAll(
-    '.section-head, .card, .stat, .panel, .pillar, .hero-copy, .footer-col'
+    '.section-head, .card, .stats-band, .panel, .pillar, .hero-copy, .hero-panel, .footer-col'
   );
 
   if (!reduceMotion && 'IntersectionObserver' in window && revealables.length) {

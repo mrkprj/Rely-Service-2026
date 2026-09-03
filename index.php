@@ -57,8 +57,8 @@ $clients = [
 
     <?php /* The impact-numbers block that sat here has been removed until the
              figures are verified. The source documents disagreed with each
-             other. See the note in CONTENT.md; the .stat styles remain in the
-             stylesheet, so restoring it is a paste-back. */ ?>
+             other. Verified figures now belong in a stats band: see
+             includes/stats-band.php and the service pages. */ ?>
     <div class="hero-panel">
       <div class="wave" aria-hidden="true">
         <span></span><span></span><span></span><span></span><span></span>
@@ -141,7 +141,7 @@ $clients = [
       </div>
     </div>
     <div class="panel">
-      <h4>Where we typically start</h4>
+      <h3>Where we typically start</h3>
       <ul class="feature-list">
         <li><strong>Educational ERP</strong>: admissions, records, examinations, placement cell</li>
         <li><strong>IT &amp; Digital Transformation</strong>: portals, apps, LMS, AI assistants</li>
@@ -156,7 +156,7 @@ $clients = [
 <section class="section section--tint">
   <div class="container pillar-grid">
     <div class="panel" style="background:#fff">
-      <h4>The campus-to-corporate arc</h4>
+      <h3>The campus-to-corporate arc</h3>
       <ol class="numbered">
         <li><strong>Skills</strong><br>Communication and quantitative aptitude: what students are screened on first.</li>
         <li><strong>Employability</strong><br>CVs, group discussions, mock interviews and recruitment counselling.</li>
@@ -194,7 +194,7 @@ $clients = [
       </div>
     </div>
     <div class="panel">
-      <h4>How we support your incubation centre</h4>
+      <h3>How we support your incubation centre</h3>
       <ul class="feature-list">
         <li><strong>Setting Up the Centre</strong>: structure, policy, intake process, infrastructure</li>
         <li><strong>Legal &amp; Governance</strong>: IP policy, agreements, compliance, oversight</li>

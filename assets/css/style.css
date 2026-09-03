@@ -186,7 +186,7 @@ strong { color: var(--ink); font-weight: 600; }
   background: radial-gradient(circle, rgba(0,160,227,.16), transparent 62%);
   pointer-events: none;
 }
-.section--ink > * { position: relative; }
+.section--ink > * { position: relative; z-index: 1; }
 
 .section-head { max-width: 44rem; margin-bottom: var(--space-lg); }
 .section-head.center { margin-inline: auto; text-align: center; }
@@ -387,7 +387,7 @@ strong { color: var(--ink); font-weight: 600; }
 .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 1000px) {
+@media (max-width: 1120px) {
   .nav-toggle { display: block; }
 
   .primary-nav {
@@ -495,27 +495,7 @@ strong { color: var(--ink); font-weight: 600; }
   margin-bottom: 1.25rem;
 }
 .hero-panel .feature-list li { font-size: var(--step-0); }
-
-.hero-stats { display: grid; gap: .85rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.stat {
-  padding: var(--space-md) 1.5rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
-}
-.stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.stat-num {
-  display: block;
-  font-family: var(--font-display);
-  font-size: var(--step-2); font-weight: 800; line-height: 1;
-  letter-spacing: -.04em;
-  background: var(--brand-gradient);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-  margin-bottom: .35rem;
-}
-.stat-label { font-size: var(--step--1); color: var(--muted); }
+.hero-panel-title { font-size: var(--step-1); }
 
 /* Inner-page hero: light, with a hairline gradient rule at the bottom. */
 .page-hero {
@@ -629,7 +609,7 @@ strong { color: var(--ink); font-weight: 600; }
   background: radial-gradient(ellipse at 50% 0%, rgba(0,160,227,.20), transparent 58%);
   pointer-events: none;
 }
-.cta-band > * { position: relative; }
+.cta-band > * { position: relative; z-index: 1; }
 .cta-band h2 { color: #fff; max-width: 22ch; margin-inline: auto; }
 .cta-band p { color: rgba(255,255,255,.66); margin-inline: auto; }
 .cta-band .btn-row { justify-content: center; }
@@ -679,11 +659,13 @@ strong { color: var(--ink); font-weight: 600; }
 }
 
 /* --- Marquee (many clients) --- */
-.marquee {
-  position: relative;
+.marquee { position: relative; }
+
+/* The edge fade lives on an inner element, not on .marquee itself. A mask
+   applies to every descendant, so with it on the wrapper the pause button
+   sitting near the right edge was being faded out along with the logos. */
+.marquee-viewport {
   overflow: hidden;
-  /* Fade the strip out at both edges so logos enter and leave rather than
-     being sliced off by the viewport. */
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
           mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
@@ -778,7 +760,7 @@ strong { color: var(--ink); font-weight: 600; }
   border: 1px solid var(--line-soft);
   border-radius: var(--radius-lg);
 }
-.panel h4 { color: var(--ink); margin-bottom: 1rem; }
+.panel h3 { color: var(--ink); margin-bottom: 1rem; font-size: var(--step-0); font-weight: 700; letter-spacing: -.01em; }
 .section--tint .panel { background: var(--surface); border-color: var(--line); }
 
 /* Sticky jump nav on pillar pages */
@@ -877,11 +859,6 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
 .contact-aside .panel + .panel { margin-top: 1rem; }
 .contact-aside address { font-style: normal; color: var(--muted); font-size: var(--step--1); line-height: 1.8; }
 .contact-aside p { font-size: var(--step--1); }
-
-.map-embed {
-  border: 0; width: 100%; aspect-ratio: 4 / 3;
-  border-radius: var(--radius); filter: grayscale(.4) contrast(1.05);
-}
 
 /* 11. Footer ------------------------------------------------------------------ */
 .site-footer {
@@ -1081,6 +1058,7 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
 .section--ink::after, .cta-band::after {
   content: "";
   position: absolute; inset: 0;
+  z-index: 0;
   background-image:
     linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
@@ -1129,7 +1107,7 @@ input[aria-invalid="true"], textarea[aria-invalid="true"], select[aria-invalid="
 
   /* The marquee becomes a static, centred, wrapping wall. The duplicate set is
      removed so no client appears twice, and the edge fade goes with it. */
-  .marquee { -webkit-mask-image: none; mask-image: none; overflow: visible; }
+  .marquee-viewport { -webkit-mask-image: none; mask-image: none; overflow: visible; }
   .marquee-track { width: auto; flex-wrap: wrap; justify-content: center; animation: none !important; }
   .marquee-set { flex-wrap: wrap; justify-content: center; padding-right: 0; }
   .marquee-set[aria-hidden="true"] { display: none; }

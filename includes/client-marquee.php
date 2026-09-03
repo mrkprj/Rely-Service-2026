@@ -69,7 +69,8 @@ if ($count < MARQUEE_MIN): ?>
 ?>
 
   <div class="marquee" style="--marquee-duration: <?= e((string) $duration) ?>s">
-    <div class="marquee-track">
+    <div class="marquee-viewport">
+      <div class="marquee-track">
       <ul class="marquee-set">
         <?php foreach ($set as $client) client_tile($client); ?>
       </ul>
@@ -78,6 +79,7 @@ if ($count < MARQUEE_MIN): ?>
       <ul class="marquee-set" aria-hidden="true">
         <?php foreach ($set as $client) client_tile($client); ?>
       </ul>
+      </div>
     </div>
 
     <?php /* WCAG 2.2.2 wants an explicit control for motion that runs past five

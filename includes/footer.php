@@ -63,6 +63,6 @@
   </div>
 </footer>
 
-<script src="/assets/js/main.js?v=5" defer></script>
+<script src="/assets/js/main.js?v=7" defer></script>
 </body>
 </html>

@@ -22,6 +22,15 @@ DirectoryIndex index.php
   RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
   RewriteRule ^ /%1 [R=301,L]
 
+  # /index -> /  so the homepage has exactly one URL. Without this, /index
+  # serves the same page as / and search engines see duplicate content.
+  RewriteRule ^index/?$ / [R=301,L]
+
+  # Strip a trailing slash from page URLs, for the same reason: /about/ and
+  # /about would otherwise both resolve and both be indexable.
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
   # /about  ->  about.php  (internally; the browser keeps the clean URL)
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}.php -f
@@ -56,8 +65,9 @@ RedirectMatch 404 ^/includes(/.*)?$
 </IfModule>
 
 # --- Browser caching --------------------------------------------------------
-# CSS and JS are cache-busted by the ?v= query string in header.php.
-# bump that number whenever you edit style.css or main.js.
+# CSS and JS are cache-busted by the ?v= query string in header.php. Bump that
+# number whenever you edit style.css or main.js, or returning visitors keep the
+# old file for up to a year.
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css                "access plus 1 year"

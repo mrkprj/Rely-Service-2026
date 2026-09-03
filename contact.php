@@ -133,7 +133,7 @@ require __DIR__ . '/includes/header.php';
 
     <aside class="contact-aside">
       <div class="panel">
-        <h4>Where we are</h4>
+        <h3>Where we are</h3>
         <p class="hint" style="margin-bottom:.85rem">Two offices in Mumbai</p>
         <ul class="feature-list">
           <?php foreach ($COMPANY_LOCATIONS as $location): ?>
@@ -143,7 +143,7 @@ require __DIR__ . '/includes/header.php';
       </div>
 
       <div class="panel">
-        <h4>Direct</h4>
+        <h3>Direct</h3>
         <p>
           <a href="tel:<?= e(company_phone_href()) ?>"><?= e(COMPANY_PHONE) ?></a><br>
           <a href="mailto:<?= e(COMPANY_EMAIL) ?>"><?= e(COMPANY_EMAIL) ?></a>
@@ -152,7 +152,7 @@ require __DIR__ . '/includes/header.php';
       </div>
 
       <div class="panel">
-        <h4>What happens next</h4>
+        <h3>What happens next</h3>
         <ul class="feature-list">
           <li>We call you back, usually within two working days</li>
           <li>A short conversation about what you need</li>
