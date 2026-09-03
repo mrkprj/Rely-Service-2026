@@ -226,9 +226,34 @@ strong { color: var(--ink); font-weight: 600; }
 }
 
 .grid { display: grid; gap: var(--space-md); }
+
+/* Below the caps further down, auto-fit decides the column count from the
+   available width. */
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
 .grid-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+
+/* Hold each grid to the column count its name promises.
+   Without this, auto-fit keeps adding columns as the viewport grows: at the
+   1440px container, .grid-3 was fitting four columns, so six cards landed as
+   4 + 2 instead of 3 + 3. Each breakpoint is set just above the width at which
+   auto-fit would otherwise overshoot. */
+@media (min-width: 1000px) {
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1180px) {
+  .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* For a set whose count does not divide evenly, this centres the final row
+   rather than leaving an orphan hugging the left edge. */
+.grid--center {
+  display: flex; flex-wrap: wrap; justify-content: center;
+}
+.grid--center > * { flex: 1 1 15rem; max-width: 22rem; }
 
 /* 4. Buttons & links -------------------------------------------------------- */
 .btn {

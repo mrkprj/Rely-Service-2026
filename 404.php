@@ -18,7 +18,7 @@ require __DIR__ . '/includes/header.php';
 
 <div class="section">
   <div class="container">
-    <div class="grid grid-4">
+    <div class="grid grid--center">
       <?php foreach ($NAV as $item): ?>
         <a class="card" href="<?= e($item['url']) ?>" style="text-decoration:none">
           <h3><?= e($item['label']) ?></h3>
