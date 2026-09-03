@@ -9,6 +9,8 @@
  */
 require_once __DIR__ . '/config.php';
 
+security_headers();
+
 $page_title       = $page_title       ?? SITE_NAME;
 $page_description = $page_description ?? SITE_TAGLINE;
 $active           = $active           ?? '';

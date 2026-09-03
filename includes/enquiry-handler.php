@@ -14,9 +14,7 @@
  */
 require_once __DIR__ . '/config.php';
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+secure_session_start();
 
 // Fresh CSRF token + render timestamp for the form below.
 if (empty($_SESSION['csrf_token'])) {
@@ -37,8 +35,22 @@ $INTERESTS = [
 
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
 
+    /* Cap the raw value first. Only the digit count was checked on the phone
+       field, so an 80KB string of spaces around ten digits passed validation
+       and was written to the log and the email. */
+    $caps = [
+        'name'     => MAX_NAME_LEN,
+        'phone'    => MAX_PHONE_LEN,
+        'email'    => MAX_EMAIL_LEN,
+        'interest' => 40,
+        'message'  => MAX_MESSAGE_LEN,
+    ];
     foreach ($old as $k => $_) {
-        $old[$k] = trim((string) ($_POST[$k] ?? ''));
+        $raw = (string) ($_POST[$k] ?? '');
+        if (strlen($raw) > ($caps[$k] ?? 200) * 4) {   // generous, allows UTF-8
+            $raw = substr($raw, 0, ($caps[$k] ?? 200) * 4);
+        }
+        $old[$k] = trim($raw);
     }
 
     // --- 1. Honeypot: real people leave this empty ---------------------------
@@ -55,7 +67,13 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         exit;
     }
 
-    // --- 3. CSRF -------------------------------------------------------------
+    // --- 3. Rate limit -------------------------------------------------------
+    if (!rate_limit_ok()) {
+        $errors['form'] = 'We have received several enquiries from your connection recently. '
+                        . 'Please try again a little later, or call us on ' . COMPANY_PHONE . '.';
+    }
+
+    // --- 4. CSRF -------------------------------------------------------------
     if (!hash_equals($_SESSION['csrf_token'] ?? '', (string) ($_POST['csrf_token'] ?? ''))) {
         $errors['form'] = 'Your session expired. Please review the details and send again.';
     }
@@ -64,12 +82,14 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     // Required: name, phone, service. Optional: email, message.
     if ($old['name'] === '') {
         $errors['name'] = 'Please tell us your name.';
-    } elseif (str_length($old['name']) > 100) {
+    } elseif (str_length($old['name']) > MAX_NAME_LEN) {
         $errors['name'] = 'That name looks too long.';
     }
 
     if ($old['phone'] === '') {
         $errors['phone'] = 'Please give us a number we can reach you on.';
+    } elseif (str_length($old['phone']) > MAX_PHONE_LEN) {
+        $errors['phone'] = 'Please enter a valid phone number.';
     } else {
         $digits = preg_replace('/\D/', '', $old['phone']);
         if (strlen($digits) < 8 || strlen($digits) > 15) {
@@ -78,7 +98,9 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     }
 
     // Optional, but must be valid if given, or a reply will bounce.
-    if ($old['email'] !== '' && !filter_var($old['email'], FILTER_VALIDATE_EMAIL)) {
+    if ($old['email'] !== ''
+        && (str_length($old['email']) > MAX_EMAIL_LEN
+            || !filter_var($old['email'], FILTER_VALIDATE_EMAIL))) {
         $errors['email'] = 'That email address doesn\'t look right.';
     }
 
@@ -88,7 +110,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         $errors['interest'] = 'Please choose one of the listed options.';
     }
 
-    if ($old['message'] !== '' && str_length($old['message']) > 4000) {
+    if ($old['message'] !== '' && str_length($old['message']) > MAX_MESSAGE_LEN) {
         $errors['message'] = 'Please keep this under 4000 characters.';
     }
 
@@ -173,6 +195,11 @@ function enquiry_log(array $data, string $interest, bool $mailed): void
     }
 
     $file = $dir . '/enquiries.csv';
+
+    // Roll the file rather than letting it grow until the disk is full.
+    if (file_exists($file) && filesize($file) > MAX_LOG_BYTES) {
+        @rename($file, $dir . '/enquiries-' . date('Y-m-d-His') . '.csv');
+    }
     $new  = !file_exists($file);
 
     $fh = @fopen($file, 'a');

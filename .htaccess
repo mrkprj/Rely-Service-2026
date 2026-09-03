@@ -43,9 +43,22 @@ ErrorDocument 404 /404.php
 RedirectMatch 404 ^/storage(/.*)?$
 RedirectMatch 404 ^/includes(/.*)?$
 
-<FilesMatch "\.(csv|log|md|json|lock)$">
+<FilesMatch "\.(csv|log|md|json|lock|txt)$">
   Require all denied
 </FilesMatch>
+# robots.txt and the sitemap must stay reachable despite the .txt rule above.
+<FilesMatch "^(robots\.txt|sitemap\.xml)$">
+  Require all granted
+</FilesMatch>
+
+# Original client logo files: kept in the repo for re-processing, never needed
+# by the site, and 4.4MB of avoidable exposure if uploaded.
+RedirectMatch 404 ^/assets/img/clients-src(/.*)?$
+
+# The dev-only router must never run in production.
+<Files "router.php">
+  Require all denied
+</Files>
 
 # --- Security headers -------------------------------------------------------
 <IfModule mod_headers.c>
@@ -53,6 +66,11 @@ RedirectMatch 404 ^/includes(/.*)?$
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # Also sent from PHP for pages; this covers static assets, and hosts where
+  # PHP headers are stripped. Keep the two in step.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-DamCoPgB/VkDCPsu0R6X4sJsz1c66vGlUGBXLu04Yxg='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
+  # Stop advertising the PHP version.
+  Header always unset X-Powered-By
   # Enable once the site is fully on HTTPS and you're sure you won't revert:
   # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
