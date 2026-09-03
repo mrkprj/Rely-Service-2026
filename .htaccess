@@ -1,33 +1,49 @@
 # Rely Service Apache config for shared cPanel hosting.
-# Safe to drop in as-is. If a rule causes a 500 error on your host, comment it
-# out and reload; shared hosts occasionally disable individual modules.
+#
+# THIS FILE MUST BE UPLOADED TO public_html/ FOR THE SITE TO WORK.
+# It begins with a dot, so cPanel's File Manager hides it by default:
+#   Settings (top right) -> tick "Show Hidden Files (dotfiles)" -> Save
+# Without it, /about returns 404 and only /about.php works.
+#
+# TROUBLESHOOTING: if the whole site returns 500 after uploading this, the host
+# has restricted AllowOverride. Comment out the "Options -Indexes" line at the
+# bottom first, reload, and if it still fails comment out the <IfModule
+# mod_headers.c> block. Everything above the security headers is standard on
+# cPanel and rarely a problem.
 
-Options -Indexes
 DirectoryIndex index.php
 
-# --- Clean URLs -------------------------------------------------------------
+# --- Clean URLs (the part that makes /about work) ----------------------------
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteBase /
 
-  # Force HTTPS (turn this on only AFTER your SSL certificate is active).
-  # RewriteCond %{HTTPS} !=on
-  # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+  # Force HTTPS. The certificate is active, so this is on.
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-  # Force the www. host so you don't split SEO across two hostnames.
-  # Flip the condition if you prefer the bare domain.
-  # RewriteCond %{HTTP_HOST} !^www\. [NC]
-  # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+  # Serve one hostname only. The site is published on the bare domain, so www
+  # redirects to it. Both currently answer, which splits search rankings across
+  # two addresses and shows visitors two different URLs for the same page.
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 
-  # /about.php  ->  /about   (301, so the clean URL is the canonical one)
+  # /about.php  ->  /about   (301, so the clean URL is the canonical one).
+  #
+  # The first condition is essential. This rule matches on THE_REQUEST, the raw
+  # request line, which still holds the original URL while Apache is rendering
+  # ErrorDocument 404. Without the guard, any 404 on a .php address (including
+  # /includes/config.php) is answered with a 301 to the stripped path instead of
+  # a 404. REDIRECT_STATUS is empty only on the initial request.
+  RewriteCond %{ENV:REDIRECT_STATUS} ^$
+  RewriteCond %{REQUEST_URI} !^/(includes|storage)/ [NC]
   RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
   RewriteRule ^ /%1 [R=301,L]
 
-  # /index -> /  so the homepage has exactly one URL. Without this, /index
-  # serves the same page as / and search engines see duplicate content.
+  # /index -> /  so the homepage has exactly one URL.
   RewriteRule ^index/?$ / [R=301,L]
 
-  # Strip a trailing slash from page URLs, for the same reason: /about/ and
-  # /about would otherwise both resolve and both be indexable.
+  # Strip a trailing slash: /about/ and /about would otherwise both resolve.
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.+)/$ /$1 [R=301,L]
 
@@ -39,9 +55,12 @@ DirectoryIndex index.php
 
 ErrorDocument 404 /404.php
 
-# --- Block access to server-side directories --------------------------------
+# --- Block access to server-side directories and files ----------------------
 RedirectMatch 404 ^/storage(/.*)?$
 RedirectMatch 404 ^/includes(/.*)?$
+
+# Original client logos: never used by the site, 4.4MB, and currently public.
+RedirectMatch 404 ^/assets/img/clients-src(/.*)?$
 
 <FilesMatch "\.(csv|log|md|json|lock|txt)$">
   Require all denied
@@ -51,11 +70,8 @@ RedirectMatch 404 ^/includes(/.*)?$
   Require all granted
 </FilesMatch>
 
-# Original client logo files: kept in the repo for re-processing, never needed
-# by the site, and 4.4MB of avoidable exposure if uploaded.
-RedirectMatch 404 ^/assets/img/clients-src(/.*)?$
-
-# The dev-only router must never run in production.
+# The dev-only router must never run in production. Better still, do not upload
+# router.php, README.md or CONTENT.md at all.
 <Files "router.php">
   Require all denied
 </Files>
@@ -71,7 +87,8 @@ RedirectMatch 404 ^/assets/img/clients-src(/.*)?$
   Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'sha256-DamCoPgB/VkDCPsu0R6X4sJsz1c66vGlUGBXLu04Yxg='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'"
   # Stop advertising the PHP version.
   Header always unset X-Powered-By
-  # Enable once the site is fully on HTTPS and you're sure you won't revert:
+  # Turn on once you are certain the site will not revert to plain HTTP. It
+  # instructs browsers to refuse HTTP for a year, and cannot be undone quickly.
   # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
 
@@ -97,3 +114,8 @@ RedirectMatch 404 ^/assets/img/clients-src(/.*)?$
   ExpiresByType font/woff2              "access plus 1 year"
   ExpiresByType text/html               "access plus 0 seconds"
 </IfModule>
+
+# Directory listings off. This is the single most likely line to trigger a 500
+# on a host with restricted AllowOverride, so it is last: comment it out first
+# if the site errors after upload.
+Options -Indexes
