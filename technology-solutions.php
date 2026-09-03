@@ -10,9 +10,10 @@ $sections = [
     [
         'id'    => 'educational-erp',
         'title' => 'Educational ERP',
-        'lead'  => 'One system for admissions, records, examinations and placements, instead of six that don\'t talk to each other.',
+        'lead'  => 'One hosted platform for admissions, records, examinations and placements, instead of six systems that do not talk to each other.',
         'body'  => [
-            'Most institutions run admissions in one tool, attendance in another and examinations on a spreadsheet, then re-key the same student data between them. We implement and integrate the systems a campus runs on day to day so the data is entered once and used everywhere.',
+            'Most institutions run admissions in one tool, attendance in another and examinations on a spreadsheet, then re-key the same student data between them. Our ERP replaces that with a single platform where the data is entered once and used everywhere.',
+            'It is delivered as software as a service. We host it, run it, secure it and keep it updated, so there is no server for your team to maintain and no upgrade project every few years. Your institution subscribes, your staff are trained on it, and the platform improves for everyone as we develop it.',
             'The placement cell suite matters particularly here: it is where student records, recruiter relationships and outcome reporting meet, and it is usually the weakest link in an otherwise functional stack.',
         ],
         'ai'    => 'Our ERP work includes an AI layer over your own data: natural-language queries against student records, automatic anomaly flagging on attendance and fee defaults, and drafted reports that a registrar edits rather than assembles.',
@@ -25,6 +26,7 @@ $sections = [
                 'Placement cell portal suite',
                 'Institutional alumni network',
                 'Operational HR, library and payroll',
+                'Hosting, security, updates and support included',
             ],
         ],
     ],
@@ -73,21 +75,25 @@ $sections = [
     [
         'id'    => 'digital-growth',
         'title' => 'Digital Growth',
-        'lead'  => 'Filling seats: search, social and admission campaigns run as a measured funnel.',
+        'lead'  => 'Complete digital marketing for the institution, including running your social media platforms end to end.',
         'body'  => [
-            'Admissions are competitive and increasingly decided online, well before a prospectus is ever opened. We run search, social and paid campaigns for institutions with the funnel instrumented end to end, so you can see which channels produce enquiries that actually convert to enrolments.',
+            'Admissions are competitive and increasingly decided online, well before a prospectus is ever opened. We run the institution\'s complete digital marketing: search, paid campaigns, brand communications and the admission funnel, instrumented end to end so you can see which channels produce enquiries that actually convert to enrolments.',
+            'We also handle your social media in full. That means the content calendar, design and copy, scheduling and posting, community management and replies, campaign creative, and monthly reporting across every platform your institution is on. Your team stops chasing posts between teaching commitments, and the channels get run to a plan instead of in bursts around admission season.',
             'The same infrastructure keeps alumni reachable. They are the group most institutions under-use, and the one most likely to send the next cohort of students and recruiters.',
         ],
         'ai'    => 'Campaign spend is optimised against enrolment, not clicks: models score which enquiry sources actually convert, and creative and bidding follow. Chat assistants qualify enquiries before they reach your counselling team.',
         'panel' => [
             'heading' => 'What this covers',
             'items'   => [
+                'End-to-end social media management for every platform',
+                'Content calendar, creative, copy and scheduling',
+                'Community management and response handling',
                 'Search engine optimisation',
-                'Social media audience growth',
-                'Qualified lead generation campaigns',
+                'Qualified lead generation and paid campaigns',
                 'Brand communications strategy',
                 'Admission campaign funnel management',
-                'Alumni management',
+                'Alumni engagement and management',
+                'Monthly performance reporting',
             ],
         ],
     ],
@@ -133,7 +139,7 @@ $sections = [
   <div class="container">
     <div class="section-head center">
       <span class="eyebrow">How we work</span>
-      <h2>Built to be handed over</h2>
+      <h2>Delivered as a service, not a handover</h2>
     </div>
     <div class="grid grid-3">
       <div>
@@ -142,14 +148,15 @@ $sections = [
            not from a requirements document written elsewhere.</p>
       </div>
       <div>
-        <h3>Mainstream technology only</h3>
-        <p>We build on well-supported platforms so another developer can pick the
-           system up. No proprietary lock-in.</p>
+        <h3>We run it, so you don't have to</h3>
+        <p>Hosting, security patching, backups and updates are ours. There is no
+           server in a cupboard on campus and no upgrade project every few years.</p>
       </div>
       <div>
-        <h3>Documentation and training included</h3>
-        <p>You should never need to call us to change a form field. Handover is part
-           of delivery, not an upsell.</p>
+        <h3>Your data stays yours</h3>
+        <p>Everything your institution puts into the platform can be exported in
+           full, at any time. Subscribing to a service should not mean losing
+           control of your records.</p>
       </div>
     </div>
   </div>

@@ -75,9 +75,9 @@ require __DIR__ . '/includes/header.php';
            for, we say so before the proposal stage.</p>
       </div>
       <div class="card">
-        <h3>Hand over what we build</h3>
-        <p>Documentation and training are part of delivery. You should never be
-           locked into us to change a form field.</p>
+        <h3>Run as a service, not handed over</h3>
+        <p>Our platforms are delivered as SaaS. We host, secure and update them,
+           and your data stays exportable in full at any time.</p>
       </div>
       <div class="card">
         <h3>One accountable team</h3>

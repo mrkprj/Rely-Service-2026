@@ -66,7 +66,7 @@ $clients = [
       <h2 class="hero-panel-title">What we're asked for most</h2>
       <ul class="feature-list">
         <li><strong>Campus to Corporate</strong>: soft skills, aptitude, technical training and placement support</li>
-        <li><strong>Educational ERP</strong>: admissions, student records, examinations, placement cell</li>
+        <li><strong>Educational ERP</strong>: a hosted platform for admissions, records, examinations and the placement cell</li>
         <li><strong>Accreditation &amp; Compliance</strong>: NAAC, NBA, NIRF and AICTE readiness</li>
         <li><strong>Incubation</strong>: establishing and running institutional incubation centres</li>
       </ul>
@@ -90,8 +90,8 @@ $clients = [
       <article class="card">
         <span class="card-icon" aria-hidden="true">01</span>
         <h3>Technology Solutions</h3>
-        <p>Educational ERP, admission and student portals, accreditation evidence
-           systems, and the digital growth work that fills your seats.</p>
+        <p>A hosted ERP platform, admission and student portals, accreditation
+           evidence systems, and complete digital marketing including social media.</p>
         <a class="link-arrow" href="/technology-solutions">Explore technology</a>
       </article>
 
@@ -143,10 +143,10 @@ $clients = [
     <div class="panel">
       <h3>Where we typically start</h3>
       <ul class="feature-list">
-        <li><strong>Educational ERP</strong>: admissions, records, examinations, placement cell</li>
+        <li><strong>Educational ERP</strong>: hosted SaaS for admissions, records, examinations, placement cell</li>
         <li><strong>IT &amp; Digital Transformation</strong>: portals, apps, LMS, AI assistants</li>
         <li><strong>Accreditation &amp; Compliance</strong>: NAAC, NBA, NIRF, AICTE readiness</li>
-        <li><strong>Digital Growth</strong>: search, social and admission campaigns</li>
+        <li><strong>Digital Growth</strong>: complete digital marketing, including running your social media</li>
       </ul>
     </div>
   </div>

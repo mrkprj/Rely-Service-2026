@@ -54,13 +54,14 @@ $sections = [
         'lead'  => 'Stream-specific technical training, taught by people who work in the field.',
         'body'  => [
             'Syllabi update slowly; industry does not. This module closes the distance with hands-on training in the tools and technologies each stream is actually hiring for, taught by practising professionals rather than from a textbook.',
-            'The catalogue is deep and stream-specific: Data Science, IoT, Robotics, AI and ML, cloud, cyber security and full-stack for engineering and polytechnic; AutoCAD, SolidWorks, CATIA and CNC for mechanical; VLSI, PLC/SCADA, embedded systems and PCB design for electrical; STAAD Pro, Revit and Primavera for civil; digital marketing, business analytics and ERP for management; clinical research, GMP and pharmaceutical data for pharma; SEO, design and digital content for mass media.',
+            'The catalogue is deep and specific to each stream. Mechanical students train on AutoCAD, SolidWorks, CATIA and CNC. Electrical covers VLSI, PLC and SCADA automation, embedded systems and PCB design. Civil covers STAAD Pro, Revit, ETABS and Primavera. Management covers digital marketing, business analytics, supply chain, financial modelling and enterprise systems.',
+            'Pharmacy and microbiology cover clinical research, GMP and quality control, bioinformatics and regulatory affairs. Nursing covers healthcare informatics, telehealth and electronic health records. Hospitality covers property management systems, revenue management and event technology. Mass media covers design, video and film editing, digital content and SEO. For IT and computer science, the catalogue runs from full-stack development and data science through to cloud, cyber security and machine learning.',
         ],
-        'ai'    => 'AI and Machine Learning are taught as part of the technical catalogue across streams, alongside data science, cloud and cyber security, so students enter the market fluent in the tools employers are hiring for now.',
+        'ai'    => 'AI is taught inside each stream rather than as a separate computing subject: predictive maintenance for mechanical students, load forecasting for electrical, project risk modelling for civil, demand forecasting for management, and clinical data analysis for pharmacy and nursing.',
         'panel' => [
             'heading' => 'Streams we train',
             'items'   => [
-                'Engineering and Polytechnic: IT, mechanical, electrical, civil',
+                'Engineering: mechanical, electrical, civil, IT and computer science',
                 'Management: marketing, analytics, operations',
                 'Microbiology and Pharmacy',
                 'Mass Media',
@@ -85,7 +86,6 @@ $sections = [
                 'On-the-job training with partner organisations',
                 'Industry mentorship from practising professionals',
                 'End-to-end placement support',
-                'Placements in India and internationally',
             ],
         ],
     ],
